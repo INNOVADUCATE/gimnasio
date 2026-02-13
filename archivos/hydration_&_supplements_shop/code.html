@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gym Espartano - Neon Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;800&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4bf91f",
+                        "accent-violet": "#bf5af2",
+                        "matte-black": "#080808",
+                        "card-black": "#121212",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.15rem", "lg": "0.5rem", "xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .neon-line-violet {
+                box-shadow: 0 0 15px rgba(191, 90, 242, 0.4), inset 0 0 5px rgba(191, 90, 242, 0.2);
+            }
+            .neon-line-green {
+                box-shadow: 0 0 15px rgba(75, 249, 31, 0.4), inset 0 0 5px rgba(75, 249, 31, 0.2);
+            }
+            .neon-glow-violet {
+                filter: drop-shadow(0 0 8px rgba(191, 90, 242, 0.6));
+            }
+            .neon-glow-green {
+                filter: drop-shadow(0 0 8px rgba(75, 249, 31, 0.6));
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .underglow-violet {
+                box-shadow: 0 10px 20px -10px rgba(191, 90, 242, 0.5);
+            }
+            .underglow-green {
+                box-shadow: 0 10px 20px -10px rgba(75, 249, 31, 0.5);
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-matte-black font-display antialiased text-white pb-32">
+<div class="fixed top-0 left-0 right-0 h-[2px] bg-primary neon-line-green z-[60]"></div>
+<header class="sticky top-0 z-50 bg-matte-black/90 backdrop-blur-xl border-b border-white/5">
+<div class="flex items-center justify-between px-6 py-4">
+<button class="text-white active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="text-xl font-extrabold tracking-[0.2em] uppercase italic">
+<span class="text-primary neon-glow-green">GYM</span> ESPARTANO
+            </h1>
+<div class="relative">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-accent-violet text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span>
+</div>
+</div>
+<div class="flex gap-4 px-6 pb-4 overflow-x-auto hide-scrollbar">
+<button class="px-5 py-1.5 rounded-full bg-primary text-black font-bold text-xs uppercase tracking-widest whitespace-nowrap">All Items</button>
+<button class="px-5 py-1.5 rounded-full bg-card-black border border-accent-violet/30 text-accent-violet font-bold text-xs uppercase tracking-widest whitespace-nowrap neon-glow-violet">Hydration</button>
+<button class="px-5 py-1.5 rounded-full bg-card-black border border-white/10 text-white/60 font-bold text-xs uppercase tracking-widest whitespace-nowrap">Supplements</button>
+</div>
+</header>
+<main class="p-6 space-y-10">
+<div class="relative h-44 rounded-2xl overflow-hidden border border-primary/30 underglow-green">
+<div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDsnJ_jWaS_Wk1l63h9vzqyAJMM6VwF2Rmdk-s9QAQk3ZmtIWAKu61tJdY5vdoRpPpRoanygbdtKamuYwD6OKmgJA-Kt1i90Ks8w7gwTw53_mCM1NKGmLQbFHALgvTGRKHVQyUs8dwA08OGa5F_MK_uFHX4iivGqK7prt7SHhnJwV5RRAObqffzGux0EMVykZ0UcS9EPDLNF9xCNKPadTgj_thQdzLbc2w1iHl4TMWB_qwhdXsEedmtv4-ppUMHmo4D9YD9c7YH-gmc');"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+<div class="relative h-full p-6 flex flex-col justify-center">
+<div class="text-[10px] font-black text-primary tracking-[0.3em] uppercase mb-1">Elite Member Deal</div>
+<h2 class="text-2xl font-black italic uppercase leading-none mb-3">
+                    Recovery<br/><span class="text-primary neon-glow-green">Power Pack</span>
+</h2>
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black">$4.50</span>
+<button class="bg-primary text-black px-4 py-1.5 rounded text-[10px] font-black uppercase tracking-tighter hover:brightness-110">Claim Now</button>
+</div>
+</div>
+</div>
+<section>
+<div class="flex items-end justify-between mb-6">
+<div>
+<h3 class="text-2xl font-black italic uppercase tracking-tighter">Hydration</h3>
+<div class="h-1 w-12 bg-accent-violet mt-1 neon-line-violet"></div>
+</div>
+<span class="text-[10px] font-bold text-accent-violet uppercase tracking-widest">Pure Energy</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="group relative bg-card-black border border-white/5 rounded-xl p-4 transition-all hover:border-accent-violet/50 underglow-violet">
+<div class="aspect-square mb-4 overflow-hidden rounded-lg bg-matte-black relative">
+<div class="absolute inset-0 bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD4gH7Cqswh-aumadYLQP2RPF1DyuWnIsmqR0ADqe5crJXay7_G4ITHIsVjEH8wUDB1dBpBLyKIZeoZleTNM0Akm-mWn1--pSbHKB-pD0R8gwOGRSDjCPjQD28k0cCFIuKZi8V2mISPzi2A5wGDrs_FrkQeRkAT0h4sM7hxOFYHcidpEEIPkO9N_aBpswLGEUQUxXR0j1bq8yZyI68j8UVOwm5eVSDejRtUdHS35HIMoap0_FJ7IjynfjXueRVN5zOu9zewXwRw9nSX');"></div>
+</div>
+<h4 class="text-xs font-bold uppercase tracking-wide text-white/90 mb-1">Powerade Blue</h4>
+<p class="text-[10px] text-white/40 mb-3 uppercase">500ml • Electrolytes</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-black text-accent-violet">$2.50</span>
+<button class="w-8 h-8 rounded bg-accent-violet/10 border border-accent-violet/30 flex items-center justify-center text-accent-violet active:bg-accent-violet active:text-black transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+</div>
+<div class="group relative bg-card-black border border-white/5 rounded-xl p-4 transition-all hover:border-accent-violet/50 underglow-violet">
+<div class="aspect-square mb-4 overflow-hidden rounded-lg bg-matte-black relative">
+<div class="absolute inset-0 bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzIwbeGj8LIeweWF_sl2jYCm5eoPHRndWA4vEsDzdwJWuFQTLhMXE-2Ws0myGZbet9i5fI3SIr7d0Wsf_VSA8KlLfVMKmv_fl0eZie7rrRahWHhFqL5Z_iQT8vksKbN9Ei36dWld2YTocSN8aBocHRHQOjRs96YNNPd0R11t3c1e60MePAiClN7pM8IJ9vCMCfsRZMwhoaanpm56Qub2vvR46wSCd-jbe3oJo7QYl5CmHQv03EE298xsFDlQ2QAKQBiypkN-u50d0Q');"></div>
+</div>
+<h4 class="text-xs font-bold uppercase tracking-wide text-white/90 mb-1">Energy Drink</h4>
+<p class="text-[10px] text-white/40 mb-3 uppercase">473ml • Taurine</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-black text-accent-violet">$3.00</span>
+<button class="w-8 h-8 rounded bg-accent-violet/10 border border-accent-violet/30 flex items-center justify-center text-accent-violet active:bg-accent-violet active:text-black transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+</div>
+<div class="group relative bg-card-black border border-white/5 rounded-xl p-4 transition-all hover:border-accent-violet/50 underglow-violet">
+<div class="aspect-square mb-4 overflow-hidden rounded-lg bg-matte-black relative">
+<div class="absolute inset-0 bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAHTlV3thBBELVp3jRNbW7IYXjim6QBxnj7ClWDabo_v5wC2gYVPEXnWMSaCqoFuU_MbFa6hKqsFqwOQy7FDxGLenOB7mrImyP4rMsXHt_2ucWrq8eriLgb_n73XtNKl_ThgBlEKVzbPaiKzDDa_kVEwae2eBBv12yntmvplR7dzX3AcjV9bSAei2FAYsFgG86mOMKgxO5zrhUjiTkAg0lThhqluk6tJUhY95VR87354K5TTu1u8_UNJptJch-AFPM0p_6frHEpbb-w');"></div>
+</div>
+<h4 class="text-xs font-bold uppercase tracking-wide text-white/90 mb-1">Mineral Water</h4>
+<p class="text-[10px] text-white/40 mb-3 uppercase">600ml • Alkaline</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-black text-accent-violet">$1.00</span>
+<button class="w-8 h-8 rounded bg-accent-violet/10 border border-accent-violet/30 flex items-center justify-center text-accent-violet active:bg-accent-violet active:text-black transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+</div>
+<div class="group relative bg-card-black border border-white/5 rounded-xl p-4 transition-all hover:border-accent-violet/50 underglow-violet">
+<div class="aspect-square mb-4 overflow-hidden rounded-lg bg-matte-black relative">
+<div class="absolute inset-0 bg-cover bg-center opacity-80 group-hover:scale-110 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB8SbyG67y28MExBPXuC22AEE4IyfABO7PM17pPPc9pBnWgbhiug_IRDkmn7CFYIxctVWzhULCqR3zjna82NVG7oUx274VGZIHQdVrCF3B8ktJlYZZzp8vZvZjPe__Ws4tKAPsYAo1pnfzfe9HFe162ggd-gF7b2NKGyHQCyRcya7-H979f14G_TYTVVqS1m82qftw0otAgAPCEq5dDmaxGjfkxZjzPW0292-z9nK9zxtf03_baUF0QejIMpFfTQ8yDaW7NG5wYOqZC');"></div>
+</div>
+<h4 class="text-xs font-bold uppercase tracking-wide text-white/90 mb-1">Powerade Red</h4>
+<p class="text-[10px] text-white/40 mb-3 uppercase">500ml • Fruit Punch</p>
+<div class="flex items-center justify-between">
+<span class="text-lg font-black text-accent-violet">$2.50</span>
+<button class="w-8 h-8 rounded bg-accent-violet/10 border border-accent-violet/30 flex items-center justify-center text-accent-violet active:bg-accent-violet active:text-black transition-colors">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-end justify-between mb-6">
+<div>
+<h3 class="text-2xl font-black italic uppercase tracking-tighter">Supplements</h3>
+<div class="h-1 w-12 bg-primary mt-1 neon-line-green"></div>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">Performance</span>
+</div>
+<div class="space-y-4">
+<div class="bg-card-black border-l-4 border-l-primary border-y border-r border-white/5 p-4 flex items-center gap-4 underglow-green">
+<div class="w-16 h-16 rounded overflow-hidden flex-shrink-0 grayscale hover:grayscale-0 transition-all">
+<img alt="Protein" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkK0EcMSQlkuuhWoKf-YUaxAA1aeY7cWwA7-QT2gOs4HqwgykBmYC493ihFbrIq5Om2D0WQkde_tmqwDxu_qQVx2nd7KUDdmaXQ_pEtNroHmsw8dBsZ-QHpGq2pyCT6OU8nxKPWCzgsN1wGPiCprBv6kYRRMJPoVRiZc8L9WpE49rIvxAls9zdIDWKol4L4VqXCNOFEUVDPBLSiauZnLKRlzHZ57cjR6gpcJEtIPJA2lB7wY6D13xaA9Ezi1_lVyixuBhPG_BRfoa2"/>
+</div>
+<div class="flex-1">
+<h4 class="text-xs font-black uppercase tracking-tight">Whey Protein Scoop</h4>
+<p class="text-[10px] text-white/40 uppercase">Post-Workout Recovery</p>
+<div class="flex items-center justify-between mt-1">
+<span class="font-black text-primary">$2.00</span>
+<button class="text-[10px] font-black text-primary uppercase tracking-widest border border-primary/30 px-3 py-1 rounded">Add Scoop</button>
+</div>
+</div>
+</div>
+<div class="bg-card-black border-l-4 border-l-primary border-y border-r border-white/5 p-4 flex items-center gap-4 underglow-green">
+<div class="w-16 h-16 rounded overflow-hidden flex-shrink-0 grayscale hover:grayscale-0 transition-all">
+<img alt="Creatine" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpsyhMA2sNdpBF-GhRjjlfbXHUv9cZh_1ouSp32jad0rcIUSR-VN5DCCGvUv_pWDN6pKWMaPMQPyVH2AjAe83b_aV5sI1rakLep7TGOvjWkwJC9qH-67feh3xD9MPK_UmldRzTcMDs7ivGMjQji_Bc0sACEd15UStaSju5C0Cw-M66pb_evMTKxmpDHJOScbbAD1cF4WF444hK0HI_DYy1MmryryZBPSTZ0qdEdDOcMxtOwNJHdjLdy22v0ox24WBoBAXSxXwz3aGD"/>
+</div>
+<div class="flex-1">
+<h4 class="text-xs font-black uppercase tracking-tight">Creatine Monohydrate</h4>
+<p class="text-[10px] text-white/40 uppercase">5g Pure Serving</p>
+<div class="flex items-center justify-between mt-1">
+<span class="font-black text-primary">$1.50</span>
+<button class="text-[10px] font-black text-primary uppercase tracking-widest border border-primary/30 px-3 py-1 rounded">Add Scoop</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<div class="fixed bottom-0 left-0 right-0 p-6 bg-matte-black/90 backdrop-blur-2xl border-t border-white/10 z-50">
+<div class="max-w-md mx-auto flex items-center justify-between gap-6">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-white/40 uppercase tracking-widest">Total Order</span>
+<span class="text-2xl font-black text-white">$8.00</span>
+</div>
+<button class="flex-1 h-14 bg-primary text-black rounded font-black uppercase tracking-widest flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(75,249,31,0.4)] active:scale-95 transition-all">
+<span class="material-symbols-outlined font-black">send</span>
+                Order via WhatsApp
+            </button>
+</div>
+</div>
+
+</body></html>

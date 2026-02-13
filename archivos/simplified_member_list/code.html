@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Simplified Member List</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4bf91f",
+                        "background-light": "#f6f8f5",
+                        "background-dark": "#13230f",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e16",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #334155;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display min-h-screen antialiased flex flex-col items-center">
+<!-- Mobile Container (Simulating an iPhone wrapper logic within a browser context) -->
+<main class="w-full max-w-md bg-background-light dark:bg-background-dark min-h-screen relative shadow-2xl overflow-hidden flex flex-col">
+<!-- Header Section -->
+<header class="sticky top-0 z-20 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md pt-12 pb-4 px-5 border-b border-primary/10 dark:border-primary/5 transition-all duration-300">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Socios</h1>
+<p class="text-sm text-slate-500 dark:text-slate-400">Gestión rápida de miembros</p>
+</div>
+<button class="relative p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors group">
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full ring-2 ring-white dark:ring-slate-900"></span>
+<span class="material-icons text-slate-600 dark:text-slate-300">notifications</span>
+</button>
+</div>
+<!-- Search & Filter -->
+<div class="flex gap-3">
+<div class="relative flex-1 group">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary text-sm shadow-sm transition-all placeholder:text-slate-400" placeholder="Buscar por nombre..." type="text"/>
+</div>
+<button class="flex items-center justify-center w-12 bg-white dark:bg-surface-dark border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-opacity-80 transition-colors shadow-sm">
+<span class="material-icons text-slate-600 dark:text-slate-300">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Stats Overview (Mini Dashboard) -->
+<section class="px-5 py-4 grid grid-cols-2 gap-3">
+<div class="bg-primary/10 dark:bg-primary/5 p-4 rounded-xl border border-primary/20 flex flex-col justify-between h-24">
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider">Activos</span>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold text-slate-800 dark:text-white">842</span>
+<span class="text-xs text-primary font-bold mb-1.5 flex items-center">
+<span class="material-icons text-[14px] mr-0.5">trending_up</span> +5%
+                    </span>
+</div>
+</div>
+<div class="bg-red-50 dark:bg-red-900/10 p-4 rounded-xl border border-red-100 dark:border-red-900/30 flex flex-col justify-between h-24">
+<span class="text-xs font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider">Atrasados</span>
+<div class="flex items-end gap-2">
+<span class="text-3xl font-bold text-slate-800 dark:text-white">34</span>
+<span class="text-xs text-red-500 font-bold mb-1.5">Acción req.</span>
+</div>
+</div>
+</section>
+<!-- Member List -->
+<div class="flex-1 overflow-y-auto px-5 pb-24 space-y-3">
+<!-- List Header -->
+<div class="flex justify-between items-end pb-1 pt-2">
+<h2 class="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Resultados Recientes</h2>
+</div>
+<!-- Member Card: Active -->
+<div class="group bg-white dark:bg-surface-dark p-3 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 flex items-center gap-4 active:scale-[0.99] transition-transform duration-100">
+<!-- Avatar -->
+<div class="relative">
+<img alt="Young woman portrait" class="w-14 h-14 rounded-full object-cover ring-2 ring-slate-50 dark:ring-slate-700" data-alt="Portrait of a young woman with curly hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSQ_Bu1jurU352zspV6fI5Ct-zRGyale2DIMCY5cQWpM39GMUdZwPAUxclf61TFwx4tRH76mPWkuc15jPMwmmzP9dfBZTuDBsIJ0cz1BzgdTYSnn52kHIZ-GtG4L4WZEaIpgBJJ-Mbw5akzBfHOVqckb5-_jiHoS1TOMxPYR7-_rLSOtRXr96RhL6gOOILUlfWrDYIC0x8NYe-Sp0Rbz5Aw6yWGFNouV6eI5lEXflD5THxeUoVMrGSf76rvt5jk-NkoNq9u9H6ajq5"/>
+<!-- Fingerprint Status: OK -->
+<div class="absolute -bottom-1 -right-1 bg-slate-100 dark:bg-slate-800 rounded-full p-1 border border-white dark:border-surface-dark shadow-sm">
+<span class="material-icons text-[14px] text-slate-400 dark:text-slate-500 block">fingerprint</span>
+</div>
+</div>
+<!-- Info -->
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-bold text-slate-900 dark:text-white truncate pr-2 text-base">Ana Rodriguez</h3>
+<span class="flex items-center text-[10px] font-bold bg-primary/20 text-green-800 dark:text-green-300 px-2 py-0.5 rounded-full border border-primary/30 whitespace-nowrap">
+<span class="w-1.5 h-1.5 bg-primary rounded-full mr-1.5"></span>
+                            Al día
+                        </span>
+</div>
+<div class="flex items-center gap-2 mb-1">
+<!-- Gym Tag: Infinit (Blue theme) -->
+<span class="text-[10px] font-medium px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/50">
+                            Infinit
+                        </span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center">
+<span class="material-icons text-[14px] mr-1 text-slate-400">event</span>
+                        Vence: 24 Oct 2023
+                    </p>
+</div>
+</div>
+<!-- Member Card: Overdue -->
+<div class="group bg-white dark:bg-surface-dark p-3 rounded-xl shadow-sm border-l-4 border-red-500 flex items-center gap-4 active:scale-[0.99] transition-transform duration-100">
+<div class="relative">
+<img alt="Man with beard portrait" class="w-14 h-14 rounded-full object-cover ring-2 ring-slate-50 dark:ring-slate-700 grayscale-[0.5]" data-alt="Portrait of a man with a beard looking forward" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4_kiDg8oGo_9krGwFmXUYywCrxTVbZFmjWpn_Ye8dggIcavYv7ApbB4eyblvGvn76bPvoNW6BVOvZmQkyy7wRLhXdaL5pjw3KZmsidls9FR5KrjC21skkMkPoULB7FgU3_UET0apyzKReiCEteivAiprsuPQgzgYJxXHEit4wn6wrXoGMgzpNNMMu4FUxnDbF5zEky1gR_qHbgcXKQhQqFsTi5f5kYW5wz3zpuuNhB7GqdcBKfvNrgKBRN0TlKyCz-payz4BcPm-W"/>
+<!-- Fingerprint Status: Missing -->
+<div class="absolute -bottom-1 -right-1 bg-red-100 dark:bg-red-900 rounded-full p-1 border border-white dark:border-surface-dark shadow-sm animate-pulse">
+<span class="material-icons text-[14px] text-red-600 dark:text-red-400 block">warning</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-bold text-slate-900 dark:text-white truncate pr-2 text-base">Carlos Méndez</h3>
+<span class="flex items-center text-[10px] font-bold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-0.5 rounded-full border border-red-200 dark:border-red-800 whitespace-nowrap">
+<span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1.5"></span>
+                            Atrasado
+                        </span>
+</div>
+<div class="flex items-center gap-2 mb-1">
+<!-- Gym Tag: Espartano (Orange theme) -->
+<span class="text-[10px] font-medium px-2 py-0.5 rounded bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-800/50">
+                            Espartano
+                        </span>
+</div>
+<p class="text-xs text-red-600 dark:text-red-400 font-medium flex items-center">
+<span class="material-icons text-[14px] mr-1">history</span>
+                        Venció: 10 Sep 2023
+                    </p>
+</div>
+</div>
+<!-- Member Card: Active -->
+<div class="group bg-white dark:bg-surface-dark p-3 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 flex items-center gap-4 active:scale-[0.99] transition-transform duration-100">
+<div class="relative">
+<img alt="Woman with serious expression" class="w-14 h-14 rounded-full object-cover ring-2 ring-slate-50 dark:ring-slate-700" data-alt="Portrait of a serious woman looking at camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE04kqEj91rBmCoAgACah8rQ1UnI9BSeZf06bqBhiDafKJG8SOuqA_LhOcL7xIithUyQww1IqCjqxlTg3hkwtnrh0TvLULi_pOpjovCRCeND8UCdwplOl0CaTtr23vnDDQTfk2LiLsRW_zIUcc8N-8LmSqyhHr3-hJy-DmBPNIeDeLe-VUdyqwkJju29sVEw45HN705DISkwGsZPHL505JpdVOe9C-YcTFzr_eU8DlfwwkjZyr1pYhxBU5iw47gSmCK6_zXewA8RdV"/>
+<div class="absolute -bottom-1 -right-1 bg-slate-100 dark:bg-slate-800 rounded-full p-1 border border-white dark:border-surface-dark shadow-sm">
+<span class="material-icons text-[14px] text-primary block">fingerprint</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-bold text-slate-900 dark:text-white truncate pr-2 text-base">Sofia Martinez</h3>
+<span class="flex items-center text-[10px] font-bold bg-primary/20 text-green-800 dark:text-green-300 px-2 py-0.5 rounded-full border border-primary/30 whitespace-nowrap">
+<span class="w-1.5 h-1.5 bg-primary rounded-full mr-1.5"></span>
+                            Al día
+                        </span>
+</div>
+<div class="flex items-center gap-2 mb-1">
+<!-- Gym Tag: GorilaGym (Purple theme) -->
+<span class="text-[10px] font-medium px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">
+                            GorilaGym
+                        </span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center">
+<span class="material-icons text-[14px] mr-1 text-slate-400">event</span>
+                        Vence: 12 Dic 2023
+                    </p>
+</div>
+</div>
+<!-- Member Card: Active -->
+<div class="group bg-white dark:bg-surface-dark p-3 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800 flex items-center gap-4 active:scale-[0.99] transition-transform duration-100">
+<div class="relative">
+<div class="w-14 h-14 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 font-bold text-xl ring-2 ring-slate-50 dark:ring-slate-700">
+                        JP
+                    </div>
+<div class="absolute -bottom-1 -right-1 bg-slate-100 dark:bg-slate-800 rounded-full p-1 border border-white dark:border-surface-dark shadow-sm">
+<span class="material-icons text-[14px] text-slate-400 dark:text-slate-500 block">fingerprint</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-bold text-slate-900 dark:text-white truncate pr-2 text-base">Juan Pablo</h3>
+<span class="flex items-center text-[10px] font-bold bg-primary/20 text-green-800 dark:text-green-300 px-2 py-0.5 rounded-full border border-primary/30 whitespace-nowrap">
+<span class="w-1.5 h-1.5 bg-primary rounded-full mr-1.5"></span>
+                            Al día
+                        </span>
+</div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-[10px] font-medium px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/50">
+                            Infinit
+                        </span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400 flex items-center">
+<span class="material-icons text-[14px] mr-1 text-slate-400">event</span>
+                        Vence: 05 Ene 2024
+                    </p>
+</div>
+</div>
+<!-- Member Card: Overdue -->
+<div class="group bg-white dark:bg-surface-dark p-3 rounded-xl shadow-sm border-l-4 border-red-500 flex items-center gap-4 active:scale-[0.99] transition-transform duration-100 opacity-80 hover:opacity-100">
+<div class="relative">
+<img alt="Older man smiling" class="w-14 h-14 rounded-full object-cover ring-2 ring-slate-50 dark:ring-slate-700" data-alt="Portrait of an older man smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3j5Z9R1h_oBjWnAWBELSvV9t1eCX5u-b4QXU3QWA4PtF9vV2C4I4WId3USIJ6Yreh0hZ1aBH64hIuEcD0vTkLgASNHUovWypvC-uRepjmophcGe6VLzwzDGpEWeS_6d0pC4vce1k9Ym1tVl69ue32bIs-NuDwnHMPesy9tfAFvv9ZbL7fy37aElb13vELU4wYDz8auwtj04BN0Z9h4i1hdGbBIUN4y2pmEbaJWDKh4lBZMGeD5AuV0jx8Ww55AIzDiHWoXBp7Zr5W"/>
+<div class="absolute -bottom-1 -right-1 bg-red-100 dark:bg-red-900 rounded-full p-1 border border-white dark:border-surface-dark shadow-sm">
+<span class="material-icons text-[14px] text-red-600 dark:text-red-400 block">priority_high</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h3 class="font-bold text-slate-900 dark:text-white truncate pr-2 text-base">Luis Torres</h3>
+<span class="flex items-center text-[10px] font-bold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-2 py-0.5 rounded-full border border-red-200 dark:border-red-800 whitespace-nowrap">
+<span class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1.5"></span>
+                            Atrasado
+                        </span>
+</div>
+<div class="flex items-center gap-2 mb-1">
+<span class="text-[10px] font-medium px-2 py-0.5 rounded bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50">
+                            GorilaGym
+                        </span>
+</div>
+<p class="text-xs text-red-600 dark:text-red-400 font-medium flex items-center">
+<span class="material-icons text-[14px] mr-1">history</span>
+                        Venció: 30 Ago 2023
+                    </p>
+</div>
+</div>
+<!-- Empty State Helper Text -->
+<div class="text-center pt-8 pb-4">
+<p class="text-xs text-slate-400 dark:text-slate-600">Mostrando 5 de 876 socios</p>
+</div>
+</div>
+<!-- Floating Action Button Area (Sticky Bottom) -->
+<div class="absolute bottom-6 right-6 z-30">
+<button class="bg-primary hover:bg-[#3de015] text-slate-900 font-bold py-4 px-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(75,249,31,0.4)] transition-all duration-300 flex items-center gap-3 active:scale-95 group">
+<span class="bg-black/10 rounded-full p-1">
+<span class="material-icons text-[20px] block">add</span>
+</span>
+<span class="text-lg">Nuevo Socio</span>
+</button>
+</div>
+<!-- Bottom Tab Bar (Context) -->
+<nav class="bg-white dark:bg-surface-dark border-t border-slate-200 dark:border-slate-800 px-6 py-3 flex justify-around items-center z-20">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons">people</span>
+<span class="text-[10px] font-medium">Socios</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons">fitness_center</span>
+<span class="text-[10px] font-medium">Gimnasios</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-icons">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</button>
+</nav>
+</main>
+</body></html>
