@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gym Espartano</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4bf91f",
+                        "primary-dim": "#35ae16",
+                        "accent": "#8b5cf6",
+                        "background-dark": "#050705",
+                        "surface-dark": "#0d130c",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'neon-green': '0 0 15px rgba(75, 249, 31, 0.4)',
+                        'neon-violet': '0 0 15px rgba(139, 92, 246, 0.4)',
+                        'underglow-green': '0 10px 20px -10px rgba(75, 249, 31, 0.5)',
+                        'underglow-violet': '0 10px 20px -10px rgba(139, 92, 246, 0.5)',
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-background-dark text-white font-['Lexend'] overflow-x-hidden;
+            }
+        }
+        .neon-line-green {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4bf91f, transparent);
+        }
+        .neon-line-violet {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+        }
+        .glass-card {
+            background: rgba(13, 19, 12, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="max-w-md mx-auto">
+<header class="fixed top-0 left-0 right-0 z-50 bg-background-dark/80 backdrop-blur-md px-6 py-4 border-b border-white/5 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl">fitness_center</span>
+<span class="font-black text-lg tracking-tighter uppercase">Gym Espartano</span>
+</div>
+<span class="material-symbols-outlined text-white/70">menu</span>
+</header>
+<main class="pt-16 pb-20">
+<section class="relative h-[65vh] flex flex-col items-center justify-center px-6 text-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/20 via-background-dark/60 to-background-dark z-10"></div>
+<img alt="Gym Background" class="w-full h-full object-cover grayscale opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCD21A_8TWUFiTjqXqXuizcSN5ZAQDJwgY0PYfv1GFNHBP87rKbt0ibLQVGaq1CNQmGxJEUgR2OX4LhvN4dvs8kOgV_4VR_J7cDnrayuWVUmYecLK1b4ik7quIorSiqMo6OG7u9yf0lV9W0IcE6LAmogYb2ZX71GTW1_ffSGiwpoffcK_DBUPGgTsEYnaNMYye218SHaFNIwUZT3N_WTsj3lC74nE8Ofthinngwe5KvEYBVi4GklPNWykafA3KWSBaxe1xcViERD1k"/>
+</div>
+<div class="relative z-20 space-y-2">
+<h1 class="text-6xl font-black italic leading-[0.8] tracking-tighter">
+                    GYM<br/>
+<span class="text-primary drop-shadow-[0_0_10px_rgba(75,249,31,0.6)]">ESPARTANO</span>
+</h1>
+<p class="text-white/60 text-sm uppercase tracking-[0.3em] font-light">Superá tus límites</p>
+<div class="pt-8">
+<button class="bg-primary text-black font-black py-4 px-10 rounded-full shadow-neon-green active:scale-95 transition-transform flex items-center gap-3 mx-auto">
+                        HABLÁ CON NOSOTROS
+                        <span class="material-symbols-outlined font-bold">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 neon-line-green opacity-50"></div>
+</section>
+<section class="px-6 py-12 grid grid-cols-3 gap-3">
+<div class="flex flex-col items-center text-center gap-3">
+<div class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center shadow-underglow-green border-primary/20">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-white/80">Fuerza Total</span>
+</div>
+<div class="flex flex-col items-center text-center gap-3">
+<div class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center shadow-underglow-violet border-accent/20">
+<span class="material-symbols-outlined text-accent">monitoring</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-white/80">Resultados</span>
+</div>
+<div class="flex flex-col items-center text-center gap-3">
+<div class="w-12 h-12 rounded-2xl glass-card flex items-center justify-center shadow-underglow-green border-primary/20">
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-white/80">Comunidad</span>
+</div>
+</section>
+<section class="px-6 py-8">
+<div class="flex items-end justify-between mb-6">
+<h2 class="text-2xl font-black italic uppercase tracking-tighter">Sucursales</h2>
+<span class="text-[10px] text-white/40 mb-1">Elegí la más cercana</span>
+</div>
+<div class="space-y-4">
+<div class="glass-card rounded-2xl p-5 border-l-4 border-l-primary shadow-underglow-green">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-black text-lg">CENTRO</h3>
+<p class="text-white/50 text-xs">Av. Corrientes 1234, CABA</p>
+</div>
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<a class="flex items-center justify-center gap-2 w-full py-3 bg-white/5 hover:bg-white/10 rounded-xl text-xs font-bold uppercase tracking-widest transition-colors border border-white/10" href="#">
+<span class="material-symbols-outlined text-sm">chat</span>
+                        WhatsApp
+                    </a>
+</div>
+<div class="glass-card rounded-2xl p-5 border-l-4 border-l-accent shadow-underglow-violet">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-black text-lg">BELGRANO</h3>
+<p class="text-white/50 text-xs">Av. Cabildo 2400, CABA</p>
+</div>
+<span class="material-symbols-outlined text-accent">location_on</span>
+</div>
+<a class="flex items-center justify-center gap-2 w-full py-3 bg-white/5 hover:bg-white/10 rounded-xl text-xs font-bold uppercase tracking-widest transition-colors border border-white/10" href="#">
+<span class="material-symbols-outlined text-sm">chat</span>
+                        WhatsApp
+                    </a>
+</div>
+<div class="glass-card rounded-2xl p-5 border-l-4 border-l-primary shadow-underglow-green">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="font-black text-lg">PALERMO</h3>
+<p class="text-white/50 text-xs">Av. Santa Fe 3800, CABA</p>
+</div>
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<a class="flex items-center justify-center gap-2 w-full py-3 bg-white/5 hover:bg-white/10 rounded-xl text-xs font-bold uppercase tracking-widest transition-colors border border-white/10" href="#">
+<span class="material-symbols-outlined text-sm">chat</span>
+                        WhatsApp
+                    </a>
+</div>
+</div>
+<div class="mt-10 py-6 text-center border-t border-white/5">
+<p class="text-white/40 text-xs mb-1">Horarios según sucursal.</p>
+<p class="text-primary font-bold text-sm">Consultá por WhatsApp.</p>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-background-dark/95 backdrop-blur-xl border-t border-white/5 px-8 py-4 flex justify-between items-center max-w-md mx-auto">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold uppercase">Inicio</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-bold uppercase">Sedes</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-bold uppercase">Planes</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-white/40">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase">Perfil</span>
+</button>
+</nav>
+<div class="fixed bottom-24 right-6 z-40">
+<button class="w-14 h-14 bg-primary rounded-full shadow-neon-green flex items-center justify-center text-black active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl font-bold">chat</span>
+</button>
+</div>
+
+</body></html>
