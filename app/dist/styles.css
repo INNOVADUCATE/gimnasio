@@ -1,0 +1,18 @@
+:root{--bg:#0d0d10;--panel:#18181f;--line:#30303a;--text:#f5f5f7;--muted:#afafb8;--green:#59ff7a;--violet:#a855f7;--cyan:#22d3ee;--orange:#fb923c;--red:#ef4444}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text)}
+a{color:inherit}button,input,select,textarea{font:inherit}
+.layout{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.sidebar{background:#11131a;border-right:1px solid var(--line);padding:1rem}.content{padding:1rem}
+.logo{font-weight:800;letter-spacing:.04em}.logo small{display:block;color:var(--green)}
+.nav{display:flex;flex-direction:column;gap:.4rem;margin-top:1rem}.nav a{padding:.55rem .6rem;border-radius:.5rem;text-decoration:none;color:var(--muted)}.nav a.active,.nav a:hover{background:#20202a;color:#fff}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:1rem;margin-bottom:1rem}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.sidebar{position:sticky;top:0;z-index:2}.grid,.grid-3{grid-template-columns:1fr}}
+.kpi{font-size:1.6rem;font-weight:800}.muted{color:var(--muted)}
+.btn{background:#2c2d39;color:#fff;border:0;padding:.5rem .8rem;border-radius:.5rem;cursor:pointer;text-decoration:none;display:inline-block}.btn.primary{background:linear-gradient(90deg,var(--green),var(--violet));color:#111;font-weight:700}.btn.warn{background:var(--red)}
+input,select,textarea{width:100%;background:#101018;color:#fff;border:1px solid var(--line);padding:.5rem;border-radius:.45rem}
+label{display:block;margin:.5rem 0 .2rem}
+table{width:100%;border-collapse:collapse}th,td{padding:.45rem;border-bottom:1px solid var(--line);text-align:left}
+.tag{font-size:.74rem;padding:.2rem .45rem;border-radius:999px}.tag.ok{background:#10351c;color:#88ff9f}.tag.bad{background:#3a1414;color:#ff9d9d}
+.hero{padding:2rem;background:#111;border-radius:12px;border:1px solid var(--line);margin-bottom:1rem}
+.center{max-width:480px;margin:8vh auto}
+.success{border:1px solid #1f6a31;background:#0f2314}.danger{border:1px solid #6c2323;background:#271010}

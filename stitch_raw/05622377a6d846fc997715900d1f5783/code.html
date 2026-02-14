@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Member Profile &amp; Biometrics</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4bf91f",
+                        "background-light": "#f6f8f5",
+                        "background-dark": "#13230f", // Deep dark green/black from config
+                        "surface-dark": "#1c3218",    // Slightly lighter version for cards
+                        "surface-darker": "#0f1c0c",  // Darker version for contrast
+                        "alert-red": "#ff4d4d",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* iOS-like safe area adjustments and scrollbar hiding */
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Custom neon glow for primary elements */
+        .neon-shadow {
+            box-shadow: 0 0 15px rgba(75, 249, 31, 0.3);
+        }
+        .neon-text {
+            text-shadow: 0 0 10px rgba(75, 249, 31, 0.5);
+        }
+        .alert-shadow {
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 min-h-screen flex flex-col items-center justify-center p-4 sm:p-0">
+<!-- Mobile Frame Container -->
+<div class="w-full max-w-md h-full min-h-[850px] bg-background-light dark:bg-background-dark sm:border sm:border-gray-200 dark:sm:border-gray-800 sm:rounded-3xl overflow-hidden relative shadow-2xl flex flex-col">
+<!-- Header -->
+<header class="pt-12 pb-4 px-6 flex items-center justify-between z-10 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md sticky top-0">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-icons-round text-2xl">arrow_back</span>
+</button>
+<div class="text-center">
+<span class="text-xs uppercase tracking-widest text-primary font-bold">GorilaGym</span>
+<h1 class="text-lg font-bold text-gray-900 dark:text-white leading-tight">Perfil de Socio</h1>
+</div>
+<button class="p-2 -mr-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors text-gray-600 dark:text-gray-300">
+<span class="material-icons-round text-2xl">more_vert</span>
+</button>
+</header>
+<!-- Main Content (Scrollable) -->
+<main class="flex-1 overflow-y-auto hide-scrollbar px-6 pb-24 space-y-6">
+<!-- Member Identity -->
+<div class="flex flex-col items-center mt-2">
+<div class="relative">
+<div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-primary to-transparent">
+<img alt="Member profile portrait photo" class="w-full h-full rounded-full object-cover bg-surface-dark border-4 border-background-light dark:border-background-dark" data-alt="Portrait of a young man with short dark hair smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJhh6uXrHvJR5Sphlm_ytZTLx6TroAY7bVmzZB78a8dVqQ9zrSeQK-np-oE3B5IA_sbTEKAJ0sY4iPNjp1i7-tnSptOnjZ9Q6Ro-D7IkGF_p9js92Ip4s8zxRigfXaI4cg2oUdKS8uazCmZALAvPfI7FetJarvCAYedzf3ZQZqI6-Jk35xGEWRwwe7kGrsMo7dCFMJyWBu4gl6cM7wqNvSyYKYpGGq0D1x1a7KwhvxNTzRU2IqNX3qRgYy4707U7v4RpSdzsiXEFm5"/>
+</div>
+<!-- Gym Brand Indicator (Small Badge) -->
+<div class="absolute bottom-1 right-1 bg-surface-darker text-white text-[10px] font-bold px-2 py-0.5 rounded-full border border-gray-700 flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+                        VIP
+                    </div>
+</div>
+<h2 class="mt-3 text-2xl font-bold text-gray-900 dark:text-white">Carlos Rodriguez</h2>
+<p class="text-sm text-gray-500 dark:text-gray-400">ID: #8842-GYM</p>
+</div>
+<!-- Status Hero Card -->
+<!-- CONDITIONAL STYLING: Use bg-primary/20 and border-primary for Active, or bg-alert-red/20 and border-alert-red for Overdue -->
+<div class="relative overflow-hidden rounded-2xl bg-primary/10 dark:bg-primary/5 border border-primary/30 p-6 text-center neon-shadow group">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/30 transition-all duration-500"></div>
+<div class="absolute -bottom-10 -left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl"></div>
+<span class="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-bold tracking-wider mb-2 border border-primary/20">
+                    MEMBRESÍA ACTIVA
+                </span>
+<h3 class="text-4xl font-black text-gray-900 dark:text-white mb-1 tracking-tight">AL DÍA</h3>
+<p class="text-sm text-gray-600 dark:text-gray-300 font-medium">Vence: <span class="text-primary font-bold">24 Oct 2024</span></p>
+<div class="mt-4 w-full bg-gray-200 dark:bg-surface-darker rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 75%"></div>
+</div>
+<div class="flex justify-between mt-2 text-xs text-gray-500 dark:text-gray-400">
+<span>Inicio: 24 Sep</span>
+<span>22 Días Restantes</span>
+</div>
+</div>
+<!-- Biometrics Section -->
+<div class="bg-white dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-100 dark:border-white/5">
+<div class="flex items-start justify-between mb-4">
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+<span class="material-icons-round text-gray-400 dark:text-gray-400">fingerprint</span>
+                            Biometría
+                        </h3>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1 pr-4">
+                            Necesaria para el acceso 24/7 sin personal.
+                        </p>
+</div>
+<!-- Status Badge -->
+<span class="px-2 py-1 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 text-[10px] font-bold uppercase rounded border border-yellow-500/20">
+                        Sin Vincular
+                    </span>
+</div>
+<div class="bg-background-light dark:bg-background-dark rounded-lg p-4 flex flex-col items-center justify-center border-2 border-dashed border-gray-300 dark:border-white/10 relative overflow-hidden">
+<!-- Fingerprint visual -->
+<div class="w-16 h-16 rounded-full bg-surface-darker flex items-center justify-center mb-3 relative z-10">
+<span class="material-icons-round text-3xl text-gray-500">fingerprint</span>
+</div>
+<div class="text-center z-10">
+<p class="text-sm font-medium text-gray-900 dark:text-white mb-1">Huella Dactilar</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">No hay datos biométricos</p>
+</div>
+<!-- Action Button -->
+<button class="mt-4 w-full py-2.5 px-4 bg-primary hover:bg-opacity-90 active:scale-95 transition-all rounded-lg text-background-dark font-bold text-sm flex items-center justify-center gap-2 z-10 shadow-lg shadow-primary/20">
+<span class="material-icons-round text-lg">add_circle_outline</span>
+                        Vincular Huella
+                    </button>
+<!-- Background Pattern -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#4bf91f 1px, transparent 1px); background-size: 10px 10px;"></div>
+</div>
+</div>
+<!-- Details Summary Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-100 dark:border-white/5">
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Plan Actual</p>
+<p class="font-bold text-gray-900 dark:text-white">Mensual VIP</p>
+</div>
+<div class="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-100 dark:border-white/5">
+<p class="text-xs text-gray-500 dark:text-gray-400 mb-1">Último Acceso</p>
+<p class="font-bold text-gray-900 dark:text-white">Hoy, 09:30 AM</p>
+</div>
+</div>
+<!-- Payment History -->
+<div class="space-y-3">
+<div class="flex items-center justify-between px-1">
+<h3 class="font-bold text-gray-900 dark:text-white text-sm">Historial de Pagos</h3>
+<button class="text-primary text-xs font-semibold hover:text-white transition-colors">Ver Todos</button>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-white/5">
+<!-- Item 1 -->
+<div class="p-4 flex items-center justify-between border-b border-gray-100 dark:border-white/5 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-primary">
+<span class="material-icons-round text-lg">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-gray-900 dark:text-white">Mensualidad</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">24 Sep 2024 • Efectivo</p>
+</div>
+</div>
+<span class="text-sm font-bold text-gray-900 dark:text-white">$500.00</span>
+</div>
+<!-- Item 2 -->
+<div class="p-4 flex items-center justify-between border-b border-gray-100 dark:border-white/5 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-primary">
+<span class="material-icons-round text-lg">check_circle</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-gray-900 dark:text-white">Mensualidad</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">24 Ago 2024 • Tarjeta</p>
+</div>
+</div>
+<span class="text-sm font-bold text-gray-900 dark:text-white">$500.00</span>
+</div>
+<!-- Item 3 -->
+<div class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-white/10 flex items-center justify-center text-gray-500">
+<span class="material-icons-round text-lg">water_drop</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-gray-900 dark:text-white">Bebida Energética</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">15 Ago 2024 • Efectivo</p>
+</div>
+</div>
+<span class="text-sm font-bold text-gray-900 dark:text-white">$35.00</span>
+</div>
+</div>
+</div>
+<!-- Spacer for FAB -->
+<div class="h-12"></div>
+</main>
+<!-- Floating Action Button Area -->
+<div class="absolute bottom-6 left-0 right-0 px-6 flex justify-center z-20 pointer-events-none">
+<button class="pointer-events-auto bg-gray-900 dark:bg-white text-white dark:text-background-dark font-bold py-3.5 px-6 rounded-full shadow-2xl flex items-center gap-2 transform active:scale-95 transition-all group">
+<span class="material-icons-round text-xl group-hover:rotate-90 transition-transform duration-300">payments</span>
+<span>Registrar Pago</span>
+</button>
+</div>
+<!-- Bottom Navigation Hint (iOS style home bar) -->
+<div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gray-300 dark:bg-gray-700 rounded-full opacity-50"></div>
+</div>
+</body></html>
