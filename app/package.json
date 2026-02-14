@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node ./scripts/dev.mjs",
+    "dev": "python3 -m http.server 5173 --directory .",
     "build": "node ./scripts/build.mjs"
   }
 }

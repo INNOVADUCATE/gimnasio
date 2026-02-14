@@ -56,7 +56,7 @@ npm install
 npm run dev
 ```
 
-Dev server: `http://localhost:5173` (servidor Node nativo, sin dependencia de Python).
+Dev server: `http://localhost:5173`
 
 Build:
 
@@ -72,8 +72,8 @@ Resultado de build consistente en `app/dist/`:
 
 ## Usuarios demo
 
-- Super admin: `user` / `admin`
-- Staff: `staff` / `admin`
+- Super admin: `super@gym.local` / `super123`
+- Staff: `staff@gym.local` / `staff123`
 
 ## Rutas
 
@@ -88,9 +88,6 @@ Resultado de build consistente en `app/dist/`:
 - `#/:gymId/inventory`
 - `#/:gymId/shop`
 - `#/:gymId/receipt`
-- `#/:gymId/receipt/:saleId`
-- `#/:gymId/membership-charge`
-- `#/:gymId/membership-charge/:memberId`
 - `#/:gymId/reports/monthly`
 - `#/:gymId/settings`
 - `#/access-granted`
@@ -106,20 +103,3 @@ export STITCH_BASE_URL="https://<endpoint-stitch>"
 ## Nota de stack
 
 Se mantiene Opción B (Vanilla + hash router) por restricción del entorno (`403` al bootstrap de Vite/React en registry npm).
-
-> Este MVP funciona en **1 PC** con `localStorage`. Hacer **backup diario** desde Settings > Respaldo.
-
-
-## Modo recepción: Vender / Cobrar cuota / Imprimir
-
-- **Inventario (CRUD):** agregar producto, editar precio/stock y ajustar stock con `+10` / `-10` (sin bajar de 0).
-- **Vender (Shop POS):** usar `+` y `-` por producto, revisar carrito y total, opcional **Vaciar carrito**, luego **COBRAR**.
-- **Renovar mes rápido:** desde lista de Socios con botón **Renovar mes** (mensualidad $35.000).
-- **Cobro de cuota:** desde Home (`COBRAR CUOTA`) o desde Perfil (`Cobrar cuota`).
-  - Mensualidad default: `$35.000`.
-  - Inscripción única: `$10.000` (checkbox activo por defecto si el socio aún no está inscripto).
-- **Comprobante secuencial:** cada venta/cuota genera número correlativo (ej. `Comprobante N° 000123`).
-- **Receipt real:** muestra ID, fecha, método, total y detalle de items.
-- **Imprimir:** desde receipt con botón **Imprimir** (`window.print`).
-- **Backup:** en Settings > Respaldo se puede **Descargar backup** e **Importar backup** JSON.
-- Atajos de recepción: `Enter` confirma búsqueda/acciones en modal, `Escape` cierra modales.
