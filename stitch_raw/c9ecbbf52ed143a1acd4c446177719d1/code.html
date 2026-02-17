@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Multi-Gym Admin Hub</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "primary-dark": "#1a4bb0",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1c2333",
+                        "infinit": "#06b6d4", // Cyan
+                        "espartano": "#8b5cf6", // Violet
+                        "gorila": "#f97316", // Orange
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom neon glow utilities */
+        .neon-border-infinit {
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.15);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+        .neon-border-espartano {
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        .neon-border-gorila {
+            box-shadow: 0 0 10px rgba(249, 115, 22, 0.15);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+        }
+        /* Mobile safe area for iOS */
+        .safe-pb {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-white font-display antialiased h-screen flex flex-col overflow-hidden">
+<!-- Top Navigation / Header -->
+<header class="pt-12 pb-4 px-6 flex justify-between items-center bg-white/5 dark:bg-surface-dark/50 backdrop-blur-md sticky top-0 z-20 border-b border-white/5">
+<div>
+<p class="text-xs font-medium text-slate-400 dark:text-slate-400 mb-0.5">Welcome back,</p>
+<h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Admin Dashboard</h1>
+</div>
+<div class="flex items-center gap-3">
+<!-- System Status -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+</span>
+<span class="text-[10px] font-semibold text-emerald-500 uppercase tracking-wide">System Online</span>
+</div>
+<!-- User Profile -->
+<button class="relative">
+<img alt="User Profile" class="h-9 w-9 rounded-full ring-2 ring-primary/30 object-cover" data-alt="User profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFRm7cBe0JdxsJ3kL7muMdrzkZT0FQqieDldEoyPUuP7EtqzHHfhMrL1jI-A-FC1A-J-oqNM5j1XelVl8M5aTlnbKuSu9sKMC3G_rlK0NXtTFmH3MNq3TKv8aeJxUE18xQxv6dEPHTkeF-RIxaV4nOtaZCfXRzkFkWP6_XGkqMB2QvnZD56lV_85hy2IhqZe5g3rmF0YbggDAgAR7iMS_9QhyI8s9VO20uRymsQjq_ryYXmxroa5sckgua67lhulA-Wtz_yPXYLpRd"/>
+</button>
+</div>
+</header>
+<!-- Main Content (Scrollable) -->
+<main class="flex-1 overflow-y-auto px-6 py-6 space-y-6">
+<!-- Quick Stats Summary -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-surface-dark rounded-2xl p-4 border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-icons text-xl">groups</span>
+</span>
+<span class="text-xs font-medium text-emerald-500 flex items-center">
+<span class="material-icons text-sm mr-0.5">trending_up</span> +12%
+                    </span>
+</div>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">4,190</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Total Active Members</p>
+</div>
+<div class="bg-white dark:bg-surface-dark rounded-2xl p-4 border border-slate-200 dark:border-white/5 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="p-2 rounded-lg bg-orange-500/10 text-orange-500">
+<span class="material-icons text-xl">warning</span>
+</span>
+</div>
+<p class="text-2xl font-bold text-slate-900 dark:text-white">62</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">Expiring Today</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-8 mb-2">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Your Gyms</h2>
+<button class="text-sm text-primary font-medium hover:text-primary-dark transition-colors">Manage List</button>
+</div>
+<!-- Gym Cards List -->
+<div class="space-y-5 pb-20">
+<!-- Infinit Gym Card -->
+<article class="relative overflow-hidden bg-white dark:bg-surface-dark rounded-2xl p-5 neon-border-infinit group transition-transform active:scale-[0.98]">
+<!-- Background Gradient Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-infinit/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+<div class="flex justify-between items-start mb-6 relative z-10">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/20">
+<span class="material-icons">fitness_center</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">Infinit Gym</h3>
+<p class="text-xs text-cyan-500 font-medium">Main Branch • Downtown</p>
+</div>
+</div>
+<!-- Fingerprint Status -->
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+<span class="material-icons text-sm text-emerald-400">fingerprint</span>
+<span class="text-[10px] font-medium text-slate-500 dark:text-slate-300">Ready</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 relative z-10">
+<div class="p-3 rounded-xl bg-slate-50 dark:bg-background-dark border border-slate-100 dark:border-white/5">
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Socios Activos</p>
+<p class="text-xl font-bold text-slate-900 dark:text-white">1,240</p>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 dark:bg-background-dark border border-slate-100 dark:border-white/5">
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Vencimientos Hoy</p>
+<p class="text-xl font-bold text-infinit">12</p>
+</div>
+</div>
+</article>
+<!-- Espartano Fitness Card -->
+<article class="relative overflow-hidden bg-white dark:bg-surface-dark rounded-2xl p-5 neon-border-espartano group transition-transform active:scale-[0.98]">
+<!-- Background Gradient Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-espartano/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+<div class="flex justify-between items-start mb-6 relative z-10">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded-xl bg-gradient-to-br from-green-400 to-violet-600 flex items-center justify-center text-white shadow-lg shadow-violet-500/20">
+<span class="material-icons">sports_mma</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">Espartano Fitness</h3>
+<p class="text-xs text-violet-400 font-medium">Crossfit &amp; MMA</p>
+</div>
+</div>
+<!-- Fingerprint Status -->
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
+<span class="material-icons text-sm text-emerald-400">fingerprint</span>
+<span class="text-[10px] font-medium text-slate-500 dark:text-slate-300">Ready</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 relative z-10">
+<div class="p-3 rounded-xl bg-slate-50 dark:bg-background-dark border border-slate-100 dark:border-white/5">
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Socios Activos</p>
+<p class="text-xl font-bold text-slate-900 dark:text-white">850</p>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 dark:bg-background-dark border border-slate-100 dark:border-white/5">
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Vencimientos Hoy</p>
+<p class="text-xl font-bold text-espartano">5</p>
+</div>
+</div>
+</article>
+<!-- GorilaGym Card -->
+<article class="relative overflow-hidden bg-white dark:bg-surface-dark rounded-2xl p-5 neon-border-gorila group transition-transform active:scale-[0.98]">
+<!-- Background Gradient Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-gorila/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+<div class="flex justify-between items-start mb-6 relative z-10">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded-xl bg-gradient-to-br from-yellow-400 to-orange-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
+<span class="material-icons">emoji_events</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">GorilaGym</h3>
+<p class="text-xs text-orange-400 font-medium">Powerlifting Center</p>
+</div>
+</div>
+<!-- Fingerprint Status -->
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 opacity-60">
+<span class="material-icons text-sm text-slate-400">fingerprint</span>
+<span class="text-[10px] font-medium text-slate-500 dark:text-slate-400">Offline</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 relative z-10">
+<div class="p-3 rounded-xl bg-slate-50 dark:bg-background-dark border border-slate-100 dark:border-white/5">
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Socios Activos</p>
+<p class="text-xl font-bold text-slate-900 dark:text-white">2,100</p>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 dark:bg-background-dark border border-slate-100 dark:border-white/5">
+<p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">Vencimientos Hoy</p>
+<p class="text-xl font-bold text-gorila">45</p>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-white/5 safe-pb z-20">
+<div class="flex justify-around items-center h-16 px-2">
+<button class="flex flex-col items-center justify-center w-full h-full text-primary space-y-1">
+<span class="material-icons">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 space-y-1 transition-colors">
+<span class="material-icons">people</span>
+<span class="text-[10px] font-medium">Members</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 space-y-1 transition-colors">
+<span class="material-icons">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</div>
+</nav>
+</body></html>

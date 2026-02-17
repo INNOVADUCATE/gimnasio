@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Overdue &amp; Notifications</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Hide scrollbar for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Custom safe area for iOS */
+        .safe-top {
+            padding-top: env(safe-area-inset-top);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-white font-display antialiased h-screen flex flex-col overflow-hidden">
+<!-- Top Status Bar Area (Simulated iOS) -->
+<div class="w-full h-12 bg-background-light dark:bg-background-dark/95 backdrop-blur-md fixed top-0 left-0 z-50 flex items-end justify-between px-6 pb-2 text-xs font-medium safe-top border-b border-primary/10">
+<span class="dark:text-white">9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-icons-round text-sm dark:text-white">signal_cellular_alt</span>
+<span class="material-icons-round text-sm dark:text-white">wifi</span>
+<span class="material-icons-round text-sm dark:text-white">battery_full</span>
+</div>
+</div>
+<!-- Main Header -->
+<header class="pt-16 pb-4 px-4 bg-background-light dark:bg-background-dark sticky top-0 z-40 safe-top">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Pagos Atrasados</h1>
+<p class="text-sm text-slate-500 dark:text-primary/60 font-medium mt-0.5">Gestión de Cobranza</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-slate-200 dark:bg-primary/10 flex items-center justify-center text-slate-600 dark:text-primary active:scale-95 transition-transform">
+<span class="material-icons-round">filter_list</span>
+</button>
+</div>
+<!-- Filter Pills -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<button class="flex-shrink-0 px-4 py-2 rounded-full bg-slate-900 dark:bg-primary text-white dark:text-background-dark text-sm font-semibold shadow-lg shadow-primary/20 whitespace-nowrap">
+                Todos
+            </button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full bg-slate-200 dark:bg-primary/10 text-slate-600 dark:text-primary border border-transparent dark:border-primary/20 text-sm font-medium whitespace-nowrap">
+                Infinit
+            </button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full bg-slate-200 dark:bg-primary/10 text-slate-600 dark:text-primary border border-transparent dark:border-primary/20 text-sm font-medium whitespace-nowrap">
+                Espartano
+            </button>
+<button class="flex-shrink-0 px-4 py-2 rounded-full bg-slate-200 dark:bg-primary/10 text-slate-600 dark:text-primary border border-transparent dark:border-primary/20 text-sm font-medium whitespace-nowrap">
+                GorilaGym
+            </button>
+</div>
+</header>
+<!-- Content Area -->
+<main class="flex-1 overflow-y-auto px-4 pb-24 no-scrollbar safe-bottom">
+<!-- Summary Stats -->
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl p-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-16 h-16 bg-red-500/10 rounded-bl-full -mr-2 -mt-2 group-hover:bg-red-500/20 transition-colors"></div>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-1">Total Atrasado</p>
+<div class="flex items-baseline gap-1">
+<span class="text-xl font-bold text-slate-900 dark:text-white">14</span>
+<span class="text-xs text-red-500 font-bold">+2 hoy</span>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl p-4 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-16 h-16 bg-primary/10 rounded-bl-full -mr-2 -mt-2 group-hover:bg-primary/20 transition-colors"></div>
+<p class="text-xs text-slate-500 dark:text-slate-400 font-medium mb-1">Monto Deuda</p>
+<div class="text-xl font-bold text-slate-900 dark:text-white">$8,450</div>
+</div>
+</div>
+<!-- Overdue List -->
+<div class="space-y-4">
+<!-- Card 1: Critical -->
+<div class="bg-white dark:bg-[#152e1e] rounded-xl p-4 shadow-sm border-l-4 border-red-500 relative overflow-hidden">
+<div class="flex items-start justify-between mb-3">
+<div class="flex gap-3">
+<div class="relative">
+<img alt="Portrait of a young woman with determined expression" class="w-12 h-12 rounded-full object-cover border-2 border-slate-100 dark:border-white/10" data-alt="Portrait of a young woman with determined expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT08wkYmoI80Cnsoeq_upDocEyMpdOVAZUmMimLwQcoFyh1HXyJvxdVF3dkHdOCqfYYdIKv8CneLn8U15Pg1H4i07dKPop5iCiE9tVX0c6nOJ3bmbUrMzoJoNBMl1Cd-HIyPTmrAHbEiSXeeiTwL5y06xOUekg5ZmIe290d29sOmzzsXYVGLk5K4o_KgQCJ88WlYx6TFbkk_9isk7kY1jypRmtAthw1CETCc1_M_5lG53Nks_NM9QXumswV4edUILnRzkcYTQ_Al9A"/>
+<div class="absolute -bottom-1 -right-1 bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-sm">3d</div>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight">Sofía Martinez</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300">Infinit</span>
+<span class="text-xs text-red-500 font-medium">Vencido hace 3 días</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-xl font-bold text-slate-900 dark:text-white">$650</span>
+<span class="text-xs text-slate-400">Mensual</span>
+</div>
+</div>
+<button class="w-full mt-2 bg-primary text-background-dark font-bold py-3 rounded-lg flex items-center justify-center gap-2 active:bg-primary/90 active:scale-[0.98] transition-all shadow-[0_4px_14px_0_rgba(19,236,91,0.39)]">
+<svg class="text-background-dark" fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.173 8.173 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16-.36-.33-.37-.48-.37-.12 0-.26 0-.4.03-.5.11-1.36.47-1.36 2.32 0 1.85 1.35 3.63 1.53 3.88.19.25 2.62 4.09 6.44 5.65 2.58 1.05 3.1.84 3.66.79.95-.08 1.62-.67 1.85-1.32.23-.65.23-1.21.16-1.32-.07-.11-.26-.18-.55-.32-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.65.15-.19.29-.75.95-.92 1.14-.17.19-.35.21-.64.07-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.44.13-.58.13-.13.29-.33.43-.5.15-.16.19-.27.29-.45.1-.18.05-.34-.02-.48-.08-.14-.65-1.57-.89-2.15z"></path>
+</svg>
+                    Notificar por WhatsApp
+                </button>
+</div>
+<!-- Card 2: High Debt -->
+<div class="bg-white dark:bg-[#152e1e] rounded-xl p-4 shadow-sm border-l-4 border-red-500/80 relative overflow-hidden">
+<div class="flex items-start justify-between mb-3">
+<div class="flex gap-3">
+<div class="relative">
+<img alt="Headshot of a serious man with a beard" class="w-12 h-12 rounded-full object-cover border-2 border-slate-100 dark:border-white/10" data-alt="Headshot of a serious man with a beard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXIFSUVQ4MQq8XUtTD5vCgPooAFfe3eZ8JgaiLBDv9dAcH2XsH6Rr6GLLwf1eHXOfVM3AzBuiLMaA-EU3RRTxvWycpg74plQRiywzLzD9MCbZUEQXrmMMcbzcwgzOIf52bwGRhouYxXLCSbOHvxsBxgpc7SNyCRs160r3EVd9AfOJv0yORq36e5VE4L3bK5QH169RK7TfnxliuF2SgUjjR_eHF3YRWbJBhibGgGc4VL8tGJ3LWBu_CIcXpKXCqJb16l4b2OMryNKuw"/>
+<div class="absolute -bottom-1 -right-1 bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-sm">7d</div>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight">Carlos Ruiz</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300">Espartano</span>
+<span class="text-xs text-red-500 font-medium">Vencido hace 7 días</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-xl font-bold text-slate-900 dark:text-white">$1,200</span>
+<span class="text-xs text-slate-400">Trimestral</span>
+</div>
+</div>
+<button class="w-full mt-2 bg-primary text-background-dark font-bold py-3 rounded-lg flex items-center justify-center gap-2 active:bg-primary/90 active:scale-[0.98] transition-all shadow-[0_4px_14px_0_rgba(19,236,91,0.39)]">
+<svg class="text-background-dark" fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.173 8.173 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16-.36-.33-.37-.48-.37-.12 0-.26 0-.4.03-.5.11-1.36.47-1.36 2.32 0 1.85 1.35 3.63 1.53 3.88.19.25 2.62 4.09 6.44 5.65 2.58 1.05 3.1.84 3.66.79.95-.08 1.62-.67 1.85-1.32.23-.65.23-1.21.16-1.32-.07-.11-.26-.18-.55-.32-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.65.15-.19.29-.75.95-.92 1.14-.17.19-.35.21-.64.07-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.44.13-.58.13-.13.29-.33.43-.5.15-.16.19-.27.29-.45.1-.18.05-.34-.02-.48-.08-.14-.65-1.57-.89-2.15z"></path>
+</svg>
+                    Notificar por WhatsApp
+                </button>
+</div>
+<!-- Card 3 -->
+<div class="bg-white dark:bg-[#152e1e] rounded-xl p-4 shadow-sm border-l-4 border-red-500/60 relative overflow-hidden">
+<div class="flex items-start justify-between mb-3">
+<div class="flex gap-3">
+<div class="relative">
+<img alt="Portrait of a woman with curly hair looking sideways" class="w-12 h-12 rounded-full object-cover border-2 border-slate-100 dark:border-white/10" data-alt="Portrait of a woman with curly hair looking sideways" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClijNcsw3QQiDFRgDZKAjN9UtMgJnNSYdHaTOJyLxLX6v5xE61Y0u5DPYPqzywWRCspAycdx-K4xc0HlvYz1krFwBn6YsRbmjOIqEW0q6Bo8Dev9y943OfuFW_OujdjJIl6qe-1oG94l748_IzQ3BQ3fFAWu8FYpJbiXxXLfmSu_EbiUuvYjYYPFTWPi6srZX2e4zxpjxKPay995i76HN28C2d0325hgqHdJqCTPryJh9vytXHwkLTrlc4Z4fX7Ji-RbjlTJnZaQLk"/>
+<div class="absolute -bottom-1 -right-1 bg-red-500/90 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-sm">1d</div>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight">Laura Gómez</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300">GorilaGym</span>
+<span class="text-xs text-red-400 font-medium">Vencido ayer</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-xl font-bold text-slate-900 dark:text-white">$500</span>
+<span class="text-xs text-slate-400">Mensual</span>
+</div>
+</div>
+<button class="w-full mt-2 bg-primary text-background-dark font-bold py-3 rounded-lg flex items-center justify-center gap-2 active:bg-primary/90 active:scale-[0.98] transition-all shadow-[0_4px_14px_0_rgba(19,236,91,0.39)]">
+<svg class="text-background-dark" fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.173 8.173 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16-.36-.33-.37-.48-.37-.12 0-.26 0-.4.03-.5.11-1.36.47-1.36 2.32 0 1.85 1.35 3.63 1.53 3.88.19.25 2.62 4.09 6.44 5.65 2.58 1.05 3.1.84 3.66.79.95-.08 1.62-.67 1.85-1.32.23-.65.23-1.21.16-1.32-.07-.11-.26-.18-.55-.32-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.65.15-.19.29-.75.95-.92 1.14-.17.19-.35.21-.64.07-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.44.13-.58.13-.13.29-.33.43-.5.15-.16.19-.27.29-.45.1-.18.05-.34-.02-.48-.08-.14-.65-1.57-.89-2.15z"></path>
+</svg>
+                    Notificar por WhatsApp
+                </button>
+</div>
+<!-- Card 4 -->
+<div class="bg-white dark:bg-[#152e1e] rounded-xl p-4 shadow-sm border-l-4 border-red-500/60 relative overflow-hidden">
+<div class="flex items-start justify-between mb-3">
+<div class="flex gap-3">
+<div class="relative">
+<img alt="Profile of a fit man in sportswear" class="w-12 h-12 rounded-full object-cover border-2 border-slate-100 dark:border-white/10" data-alt="Profile of a fit man in sportswear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP3itDv_kX_vCYZHzUyPM3_PRbTcHEpXtdW4GzzLbWJlOQ0jNzMtbQoY1BXPQjvcjDP2uFWFtpqe2__o8ot8FKs6-BPGHBRrmStbAfMpqCENyaGep1bHrFLuO-rn5X0Om607aiD0f3PSpxcmcjZmUmEqCceLEGrf9JOsWvnFyp5zDN6eAUzZZgtjeqJnCfZ-nb-LxuRD4_BU03wpBxSoQOM1Yxsab-LHXLiUxFfo8wy3N7ocA0zD75nNimv8ktMalf_iaUo1Q-dXKk"/>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg leading-tight">Miguel Angel</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300">Infinit</span>
+<span class="text-xs text-red-400 font-medium">Vence hoy</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="block text-xl font-bold text-slate-900 dark:text-white">$800</span>
+<span class="text-xs text-slate-400">Mensual</span>
+</div>
+</div>
+<button class="w-full mt-2 bg-primary text-background-dark font-bold py-3 rounded-lg flex items-center justify-center gap-2 active:bg-primary/90 active:scale-[0.98] transition-all shadow-[0_4px_14px_0_rgba(19,236,91,0.39)]">
+<svg class="text-background-dark" fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+<path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.18-3.12.82.83-3.04-.19-.31a8.173 8.173 0 01-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24M8.53 7.33c-.16-.36-.33-.37-.48-.37-.12 0-.26 0-.4.03-.5.11-1.36.47-1.36 2.32 0 1.85 1.35 3.63 1.53 3.88.19.25 2.62 4.09 6.44 5.65 2.58 1.05 3.1.84 3.66.79.95-.08 1.62-.67 1.85-1.32.23-.65.23-1.21.16-1.32-.07-.11-.26-.18-.55-.32-.29-.15-1.72-.85-1.99-.95-.27-.1-.46-.15-.65.15-.19.29-.75.95-.92 1.14-.17.19-.35.21-.64.07-.29-.15-1.23-.45-2.34-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.44.13-.58.13-.13.29-.33.43-.5.15-.16.19-.27.29-.45.1-.18.05-.34-.02-.48-.08-.14-.65-1.57-.89-2.15z"></path>
+</svg>
+                    Notificar por WhatsApp
+                </button>
+</div>
+<!-- Subtle Pagination/End Loader -->
+<div class="text-center py-4">
+<span class="text-xs text-slate-500 dark:text-slate-500">Mostrando 4 de 14 deudores</span>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 w-full bg-background-light dark:bg-background-dark/95 backdrop-blur-xl border-t border-slate-200 dark:border-white/5 pb-6 pt-3 px-6 flex justify-between items-center z-50 safe-bottom">
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-icons-round text-2xl">dashboard</span>
+<span class="text-[10px] font-medium">Inicio</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-icons-round text-2xl">people</span>
+<span class="text-[10px] font-medium">Miembros</span>
+</a>
+<div class="relative -top-5">
+<button class="w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(19,236,91,0.4)] text-background-dark transform transition-transform active:scale-95">
+<span class="material-icons-round text-3xl">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-icons-round text-2xl">notifications_active</span>
+<span class="text-[10px] font-medium">Atrasados</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500 hover:text-primary transition-colors" href="#">
+<span class="material-icons-round text-2xl">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</a>
+</nav>
+</body></html>

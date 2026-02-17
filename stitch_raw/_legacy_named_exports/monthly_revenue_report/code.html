@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Monthly Revenue Report - Gym Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9441f",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#23130f",
+                        "gym-infinit": "#06b6d4",
+                        "gym-espartano": "#22c55e",
+                        "gym-gorila": "#f97316",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(249, 68, 31, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- iOS Status Bar Spacer -->
+<div class="h-12 w-full bg-background-light dark:bg-background-dark sticky top-0 z-50"></div>
+<main class="max-w-md mx-auto px-5 pb-24">
+<!-- Header -->
+<header class="flex justify-between items-center mb-8">
+<div>
+<h1 class="text-2xl font-bold tracking-tight">Reporte Mensual</h1>
+<p class="text-sm text-slate-500 dark:text-slate-400">Octubre 2023</p>
+</div>
+<div class="flex gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-primary/10 text-primary">
+<span class="material-icons text-xl">calendar_today</span>
+</button>
+<div class="w-10 h-10 rounded-xl overflow-hidden border-2 border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Portrait of a male gym owner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNsdM3DqZ5rqlSnUMv-BKIrVxtA9NaavelH7PyFjvWuNb-H4_hMLxtmow282KznjNqm0lOKii1QQQJHR0ZS0cLw017BZK1H5J_vkeXnsCdzSFiuPZmiKH2Hf7sCYcFoue9S7_-lSqTrWhwl41_mhqxs4eXGcKOjivNPJRs-82EUC299hFFqXD7iVNZrYk3ABMfeZee5YLuxpNT_hxr-GKS7GF_zCIjfS-Q7en99S3YMn1wZlEB9fpeByecq97JOBfVmdPg880USf8V"/>
+</div>
+</div>
+</header>
+<!-- KPI Cards -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-white dark:bg-white/5 p-4 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-icons text-primary text-sm">payments</span>
+</div>
+<span class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Total Recaudado</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xl font-bold">$42.850</span>
+<span class="text-[10px] text-green-500 font-medium">+12.4% vs sep</span>
+</div>
+</div>
+<div class="bg-white dark:bg-white/5 p-4 rounded-2xl border border-slate-200 dark:border-white/10 shadow-sm">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-8 h-8 rounded-lg bg-gym-infinit/20 flex items-center justify-center">
+<span class="material-icons text-gym-infinit text-sm">emoji_events</span>
+</div>
+<span class="text-[10px] uppercase font-bold tracking-widest text-slate-400">Top Asistencia</span>
+</div>
+<div class="flex flex-col">
+<span class="text-base font-bold truncate">Lucas Méndez</span>
+<span class="text-[10px] text-slate-400">28 visitas este mes</span>
+</div>
+</div>
+</div>
+<!-- Revenue Chart Section -->
+<section class="mb-8">
+<div class="flex justify-between items-end mb-6">
+<h2 class="text-lg font-bold">Ingresos por Gimnasio</h2>
+<span class="text-xs text-slate-400">Miles de USD</span>
+</div>
+<div class="bg-white dark:bg-white/5 p-6 rounded-3xl border border-slate-200 dark:border-white/10 relative">
+<!-- Simple Bar Chart Visualization -->
+<div class="flex justify-around items-end h-48 gap-4 mb-4">
+<!-- Infinit -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="text-[10px] font-bold text-gym-infinit">$18.2k</div>
+<div class="w-full bg-gym-infinit/20 rounded-t-xl relative group">
+<div class="absolute bottom-0 left-0 right-0 bg-gym-infinit rounded-t-xl h-[75%] transition-all"></div>
+</div>
+<span class="text-[10px] font-medium text-slate-400">INFINIT</span>
+</div>
+<!-- Espartano -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="text-[10px] font-bold text-gym-espartano">$15.4k</div>
+<div class="w-full bg-gym-espartano/20 rounded-t-xl relative">
+<div class="absolute bottom-0 left-0 right-0 bg-gym-espartano rounded-t-xl h-[62%]"></div>
+</div>
+<span class="text-[10px] font-medium text-slate-400">ESPARTANO</span>
+</div>
+<!-- Gorila -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="text-[10px] font-bold text-gym-gorila">$9.2k</div>
+<div class="w-full bg-gym-gorila/20 rounded-t-xl relative">
+<div class="absolute bottom-0 left-0 right-0 bg-gym-gorila rounded-t-xl h-[38%]"></div>
+</div>
+<span class="text-[10px] font-medium text-slate-400">GORILA</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="flex justify-center gap-4 pt-4 border-t border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-gym-infinit"></div>
+<span class="text-[10px] font-medium">Cyan</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-gym-espartano"></div>
+<span class="text-[10px] font-medium">Verde</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-2 h-2 rounded-full bg-gym-gorila"></div>
+<span class="text-[10px] font-medium">Naranja</span>
+</div>
+</div>
+</div>
+</section>
+<!-- New Members Trend -->
+<section class="mb-8">
+<h2 class="text-lg font-bold mb-4">Nuevos Socios</h2>
+<div class="bg-white dark:bg-white/5 p-5 rounded-3xl border border-slate-200 dark:border-white/10">
+<div class="flex items-end justify-between h-32 gap-2 mb-2">
+<!-- Jul -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/20 rounded-lg h-[40%]"></div>
+<span class="text-[10px] text-slate-400">Jul</span>
+</div>
+<!-- Ago -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/20 rounded-lg h-[55%]"></div>
+<span class="text-[10px] text-slate-400">Ago</span>
+</div>
+<!-- Sep -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary/20 rounded-lg h-[75%]"></div>
+<span class="text-[10px] text-slate-400">Sep</span>
+</div>
+<!-- Oct (Current Highlighted) -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full bg-primary rounded-lg h-[90%] shadow-lg shadow-primary/30"></div>
+<span class="text-[10px] font-bold text-primary">Oct</span>
+</div>
+<!-- Nov (Proj) -->
+<div class="flex flex-col items-center flex-1 gap-2">
+<div class="w-full border border-dashed border-primary/40 rounded-lg h-[65%]"></div>
+<span class="text-[10px] text-slate-400">Nov</span>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<p class="text-sm text-slate-400">Total este mes: <span class="text-slate-900 dark:text-white font-bold">142</span></p>
+<div class="px-2 py-1 bg-green-500/10 rounded-full">
+<span class="text-[10px] font-bold text-green-500">+15% crec.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Action Button -->
+<button class="w-full py-4 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-icons text-xl">ios_share</span>
+            Exportar Reporte PDF
+        </button>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/80 dark:bg-background-dark/80 backdrop-blur-xl border-t border-slate-200 dark:border-white/5 px-8 py-3 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons">analytics</span>
+<span class="text-[10px] font-bold">Reportes</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">fitness_center</span>
+<span class="text-[10px] font-medium">Gimnasios</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">people</span>
+<span class="text-[10px] font-medium">Socios</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">settings</span>
+<span class="text-[10px] font-medium">Ajustes</span>
+</button>
+</nav>
+</body></html>

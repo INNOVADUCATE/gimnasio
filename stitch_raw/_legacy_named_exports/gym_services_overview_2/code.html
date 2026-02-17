@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gym Espartano - Trials of Strength</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&amp;family=Lexend:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4bf91f",
+                        "neon-violet": "#bc13fe",
+                        "matte-black": "#050505",
+                        "card-bg": "#0d0d0d",
+                        "bronze": "#cd7f32",
+                        "dark-bronze": "#804a00",
+                    },
+                    fontFamily: {
+                        "display": ["Cinzel", "serif"],
+                        "body": ["Lexend", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">:root {
+    --neon-green: #4bf91f;
+    --neon-violet: #bc13fe;
+    --bronze: #cd7f32
+    }
+.stone-texture {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDSuGI_dIdiOWzZw6EODgezOL9thi9Mx3ngbpMJkr49ezWZzwfOBGhC9R_rlg_lEcYV368Ct0y-65AHTvSuWNNWFUHA4RJRlIxZionP-o9UGFcxPCMeR5WYu3KCTlOUVKgk-6fhO4gLxIZo1D6IA8Oo8PhNKQnG8-7_kWGTR4rqOfGGzhAUzeoPa12RJZxUIHGWDrWwkh1IsLoUCWAXRX62yqk5wkebzFITTwqpJ2otJBtcKgEYQJpMSUSI0wS6oijyXrbkee0I-kBP);
+    background-color: #121212
+    }
+.shield-pattern {
+    background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    border: 2px solid rgba(255, 255, 255, 0.1)
+    }
+.neon-border-green {
+    box-shadow: 0 0 5px rgba(75, 249, 31, 0.3), inset 0 0 15px rgba(75, 249, 31, 0.1);
+    border: 1px solid rgba(75, 249, 31, 0.5)
+    }
+.neon-border-violet {
+    box-shadow: 0 0 5px rgba(188, 19, 254, 0.3), inset 0 0 15px rgba(188, 19, 254, 0.1);
+    border: 1px solid rgba(188, 19, 254, 0.5)
+    }
+.neon-text-green {
+    text-shadow: 0 0 8px var(--neon-green)
+    }
+.neon-text-violet {
+    text-shadow: 0 0 8px var(--neon-violet)
+    }
+.bronze-plaque {
+    background: linear-gradient(135deg, #cd7f32 0%, #804a00 50%, #cd7f32 100%);
+    box-shadow: 0 0 15px rgba(205, 127, 50, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    border: 1px solid #fa5;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)
+    }
+.glass-header {
+    background: rgba(5, 5, 5, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid rgba(205, 127, 50, 0.2)
+    }
+.pillar-accent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, var(--neon-green), transparent)
+    }
+.pillar-accent-violet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, var(--neon-violet), transparent)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-matte-black font-body text-white antialiased selection:bg-primary selection:text-black">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden stone-texture">
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute -top-[10%] -left-[10%] w-[70%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(188,19,254,0.1)_0%,transparent_70%)] blur-[80px]"></div>
+<div class="absolute top-[30%] -right-[20%] w-[60%] h-[60%] bg-[radial-gradient(circle_at_center,rgba(75,249,31,0.1)_0%,transparent_70%)] blur-[100px]"></div>
+</div>
+<header class="sticky top-0 z-50 flex items-center justify-between px-5 py-5 glass-header">
+<button class="flex items-center justify-center text-white active:opacity-60 transition-opacity">
+<span class="material-symbols-outlined text-[28px]">shield</span>
+</button>
+<h2 class="font-display text-lg font-black tracking-[0.2em] uppercase flex items-center gap-2">
+<span class="text-primary material-symbols-outlined neon-text-green !text-2xl">swords</span>
+                Gym Espartano
+            </h2>
+<button class="flex items-center justify-center text-white active:opacity-60 transition-opacity">
+<div class="size-9 rounded-full bg-neutral-900 flex items-center justify-center border border-bronze/30">
+<span class="material-symbols-outlined text-[20px] text-bronze">person</span>
+</div>
+</button>
+</header>
+<main class="relative z-10 flex-1 px-5 pt-10 pb-32 w-full max-w-md mx-auto">
+<div class="mb-12 text-center">
+<div class="inline-block px-4 py-1 mb-4 rounded-sm border border-bronze/20 bg-bronze/5">
+<span class="text-[10px] font-black tracking-[0.3em] uppercase text-bronze">The Path of Glory</span>
+</div>
+<h1 class="font-display text-4xl font-black text-white tracking-widest leading-tight uppercase">
+                    Trials of <br/>
+<span class="text-primary neon-text-green">Strength</span>
+</h1>
+<div class="h-1 w-24 bg-gradient-to-r from-transparent via-bronze to-transparent mx-auto mt-4"></div>
+</div>
+<div class="space-y-12">
+<article class="group relative flex flex-col bg-zinc-900/80 rounded-sm overflow-hidden neon-border-green transition-all active:scale-[0.98] shield-pattern">
+<div class="pillar-accent"></div>
+<div class="relative h-60 w-full">
+<img alt="Muscular man training" class="h-full w-full object-cover grayscale brightness-50 group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxFjWr13n_jmUWKOgGsjtR8tXsPq3yJvnnSSmye2QGIZtFvIS7_eO-hiq7PVRtNdBxH6ljlC5ZzgsVu8yTQv9e5ruXgwgZuYDnZr_HBpH2cyn0Zi3kLS5rkGYYf9a41FBkJqr4RA58MIzl8C4-vCEPSJR4DnhnbhkXa-gL7m-QSzA5mBukXONWBDfClXRfBo8VvF8mgH8zLw5Gv4YLG_1dFWdiUoGNGOOxFiHZ13qLcwub3LBKu9ZiAJDDWjj_6WT8VUsT8ugtycOU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-black/40"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-black/80 text-primary border border-primary/50 text-[10px] font-black px-3 py-1 rounded-sm uppercase tracking-widest neon-text-green">Phalanx</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-display text-2xl font-black text-white uppercase tracking-wider mb-3">Musculación</h3>
+<p class="text-neutral-400 text-sm font-light leading-relaxed mb-8 font-body">
+                            Forge your body in the fires of discipline. High-performance racks and elite iron for the true warrior.
+                        </p>
+<button class="w-full bronze-plaque py-4 rounded-sm flex items-center justify-center gap-3 active:brightness-90 transition-all">
+<span class="material-symbols-outlined font-bold text-black text-xl">history_edu</span>
+<span class="text-black font-black uppercase tracking-[0.15em] text-xs">Unirse a la Legión</span>
+</button>
+</div>
+</article>
+<article class="group relative flex flex-col bg-zinc-900/80 rounded-sm overflow-hidden neon-border-violet transition-all active:scale-[0.98] shield-pattern">
+<div class="pillar-accent-violet"></div>
+<div class="relative h-60 w-full">
+<img alt="Personal Trainer" class="h-full w-full object-cover grayscale brightness-50 group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8HBeUpCHHmOi3_J7TdshtqLGKj_B9fBld8mooxq47XZFIT_LukOCo6XLxT65bId3MLgInyXrkRR1sIFK-mR_lHM3eR2XDW_vO0Mscx2qkC_Q86UI0RsoGQWVaeVZNNqyL4W5Y9VxBNUmim5Po-zX-EkYr_9p1Mc7e4WcC6dFn9ODU5SAmfHJoJTHRg8p6nCesKbbztStV_36AH5mjByY9CtYOF8OryuSWVITsqYrsBtwDeT9ajDKbyeqaoeekVt0cDnzPGhhUigpD"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-black/40"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-black/80 text-neon-violet border border-neon-violet/50 text-[10px] font-black px-3 py-1 rounded-sm uppercase tracking-widest neon-text-violet">Mentor</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-display text-2xl font-black text-white uppercase tracking-wider mb-3">Personal Training</h3>
+<p class="text-neutral-400 text-sm font-light leading-relaxed mb-8 font-body">
+                            Every hero needs a guide. Personalized combat strategy to achieve peak physical condition.
+                        </p>
+<button class="w-full bronze-plaque py-4 rounded-sm flex items-center justify-center gap-3 active:brightness-90 transition-all">
+<span class="material-symbols-outlined font-bold text-black text-xl">verified_user</span>
+<span class="text-black font-black uppercase tracking-[0.15em] text-xs">Solicitar Mentor</span>
+</button>
+</div>
+</article>
+<article class="group relative flex flex-col bg-zinc-900/80 rounded-sm overflow-hidden neon-border-green transition-all active:scale-[0.98] shield-pattern">
+<div class="pillar-accent"></div>
+<div class="relative h-60 w-full">
+<img alt="Evaluation screen" class="h-full w-full object-cover grayscale brightness-50 group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhe9Ie3eo9vVUQRVTfc1MYW-iWAeU7P19fU7VyEflJ1tSkU8rv16U4jNmFGBSScb6upjcGP0YJ3cF9h-_dl7RyMbUwEipaRsk6ZqlFaDMCWtsAO-_ctgeGZlzOTesAi3gX5Ax3vXM8PZ2Vj2KUncG5hwQUDS-zP8IMeF1f5ebU8ncD1D9RoeAD5k9RgIi7En8hev2ap7V35BIJQuGmSckqt2zZjGg_254x6etBiaef2yYivDeiVM_qT6MO98pyU8-NTxZ5E0ge_-Ym"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-black/40"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-black/80 text-primary border border-primary/50 text-[10px] font-black px-3 py-1 rounded-sm uppercase tracking-widest neon-text-green">Oracle</span>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-display text-2xl font-black text-white uppercase tracking-wider mb-3">Evaluación Física</h3>
+<p class="text-neutral-400 text-sm font-light leading-relaxed mb-8 font-body">
+                            Know thy self. Advanced biometric scanning and performance metrics to track your ascent.
+                        </p>
+<button class="w-full bronze-plaque py-4 rounded-sm flex items-center justify-center gap-3 active:brightness-90 transition-all">
+<span class="material-symbols-outlined font-bold text-black text-xl">analytics</span>
+<span class="text-black font-black uppercase tracking-[0.15em] text-xs">Ver Resultados</span>
+</button>
+</div>
+</article>
+</div>
+<div class="mt-24 text-center opacity-40">
+<div class="flex items-center justify-center gap-4 mb-6">
+<div class="h-[1px] w-12 bg-bronze"></div>
+<span class="material-symbols-outlined text-3xl text-bronze">military_tech</span>
+<div class="h-[1px] w-12 bg-bronze"></div>
+</div>
+<p class="font-display text-[10px] uppercase tracking-[0.4em] font-black text-white">Return with your shield or on it.</p>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-50 glass-header border-t border-bronze/10 pb-safe">
+<div class="flex h-20 items-center justify-around px-6 max-w-md mx-auto">
+<button class="flex flex-col items-center gap-1 text-neutral-500 active:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="text-[8px] font-black uppercase tracking-widest">Domus</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[24px] fill-1 neon-text-green">fitness_center</span>
+<span class="text-[8px] font-black uppercase tracking-widest neon-text-green">Servicios</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-neutral-500 active:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">event_repeat</span>
+<span class="text-[8px] font-black uppercase tracking-widest">Agenda</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-neutral-500 active:text-white transition-colors">
+<span class="material-symbols-outlined text-[24px]">shield_person</span>
+<span class="text-[8px] font-black uppercase tracking-widest">Perfil</span>
+</button>
+</div>
+</nav>
+<button class="fixed bottom-24 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-sm bronze-plaque active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[28px] font-bold text-black">chat</span>
+</button>
+</div>
+
+</body></html>

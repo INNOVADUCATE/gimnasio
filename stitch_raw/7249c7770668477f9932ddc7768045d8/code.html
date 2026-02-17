@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>System Settings - Gym Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9441f",
+                        "background-light": "#f8f6f5",
+                        "background-dark": "#23130f",
+                        "surface-dark": "#2c1814", // Derived from background-dark hue
+                        "surface-darker": "#1a0e0b", // Darker shade for contrast
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9441f;
+            border-radius: 4px;
+        }
+        .ios-notch-padding {
+            padding-top: env(safe-area-inset-top);
+        }
+        .ios-bottom-padding {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-white h-screen flex flex-col overflow-hidden antialiased">
+<!-- Status Bar Spacer (for iOS simulation) -->
+<div class="h-12 w-full bg-background-light dark:bg-background-dark shrink-0"></div>
+<!-- Header -->
+<header class="px-6 pb-4 flex justify-between items-center bg-background-light dark:bg-background-dark shrink-0 z-10">
+<div class="flex items-center gap-3">
+<button class="p-2 -ml-2 rounded-full hover:bg-gray-200 dark:hover:bg-surface-dark transition-colors">
+<span class="material-icons-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-2xl font-bold tracking-tight">System Settings</h1>
+</div>
+<button class="text-primary font-semibold text-lg hover:text-primary/80 transition-colors">
+            Done
+        </button>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto px-4 pb-24 ios-bottom-padding">
+<!-- Global Settings Section -->
+<section class="mb-8">
+<h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 px-2">Global Preferences</h2>
+<div class="bg-white dark:bg-surface-dark rounded-xl overflow-hidden shadow-sm border border-gray-100 dark:border-white/5">
+<!-- Toggle Item: Habilitar Huella -->
+<div class="flex items-center justify-between p-4 border-b border-gray-100 dark:border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons-outlined">fingerprint</span>
+</div>
+<div>
+<p class="font-semibold text-base">Habilitar Huella</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Biometric entry for members</p>
+</div>
+</div>
+<!-- Switch Component -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-12 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-black peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Toggle Item: Notificaciones Automáticas -->
+<div class="flex items-center justify-between p-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons-outlined">notifications_active</span>
+</div>
+<div>
+<p class="font-semibold text-base">Notificaciones Auto</p>
+<p class="text-xs text-gray-500 dark:text-gray-400">Payment &amp; expiry reminders</p>
+</div>
+</div>
+<!-- Switch Component -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-12 h-7 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-black peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Gym Configurations Section -->
+<section>
+<h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 px-2">Location Pricing</h2>
+<div class="space-y-4">
+<!-- Card: Infinit Gym -->
+<article class="bg-white dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-100 dark:border-white/5 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-surface-darker flex items-center justify-center overflow-hidden">
+<img alt="gym interior dark" class="w-full h-full object-cover opacity-80" data-alt="Dark moody gym interior with weights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWOx59hPDk2vgccM08hYJst_-jOt1bWACPdD7x8TQYknpIewleIeqh8ZtqYnW6jfq94B_ey7K0GNkmNeeyJnNaRIJCrrF8IvxKZzqxqWU2LuQcw3YbTjVN6TpG1K8xoasouqYTHZO50NLVXNS8QQ3HmJ3pz2HKywFF-lwWiVJoyI828nXtu9Rz08Cr9Oz2tsk_0MFWc1sUuSBq7NZWaA4ELv_qG7kiyY0Z5DLxfR2V2xTTBae3oGYS4PKbc55gJpQ4oK5E1IlmDQTr"/>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">Infinit Gym</h3>
+<p class="text-xs text-primary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Active
+                                </p>
+</div>
+</div>
+<button class="text-gray-400 hover:text-white transition-colors">
+<span class="material-icons-outlined">more_horiz</span>
+</button>
+</div>
+<!-- Pricing Controls -->
+<div class="space-y-4">
+<!-- Inscription Fee -->
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Inscription</span>
+<div class="flex items-center bg-gray-50 dark:bg-surface-darker rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">remove</span>
+</button>
+<span class="w-16 text-center font-bold font-display">$45</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<!-- Monthly Fee -->
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Monthly Fee</span>
+<div class="flex items-center bg-gray-50 dark:bg-surface-darker rounded-lg p-1 border border-primary/20">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">remove</span>
+</button>
+<span class="w-16 text-center font-bold font-display text-primary">$85</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-white bg-primary shadow-sm hover:bg-primary/90 transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card: Espartano -->
+<article class="bg-white dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-100 dark:border-white/5 relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-surface-darker flex items-center justify-center overflow-hidden">
+<img alt="crossfit gym equipment" class="w-full h-full object-cover opacity-80" data-alt="Crossfit style gym equipment detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8lXt3Y_NZ7Z3qlXkcM26xoXHe5tiBTv3cabiVd_-nlyMng3g1HbsRpdarr0zsVsDAxQ0dqG0ZF2-mownS4Ry-34w93-oGj1nwUZnEreE96AzY-qWhsE6yWpS27G1oqx0DW04IxSzhScV8koqlFzpXJOsF0PjNBG_bhThOrKbJaunfgt3GH6PrQvmW4hkcx_UDEeEua0dYbGhRV7TeEm-hOFevvT2TLotNaXycYm7Dycav2S4yn_RynKKFhN7CDYYbLuLz0EkwI2Cp"/>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">Espartano</h3>
+<p class="text-xs text-gray-500 font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-500"></span> Maintenance
+                                </p>
+</div>
+</div>
+<button class="text-gray-400 hover:text-white transition-colors">
+<span class="material-icons-outlined">more_horiz</span>
+</button>
+</div>
+<!-- Pricing Controls -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Inscription</span>
+<div class="flex items-center bg-gray-50 dark:bg-surface-darker rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">remove</span>
+</button>
+<span class="w-16 text-center font-bold font-display">$30</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Monthly Fee</span>
+<div class="flex items-center bg-gray-50 dark:bg-surface-darker rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">remove</span>
+</button>
+<span class="w-16 text-center font-bold font-display">$60</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- Card: GorilaGym -->
+<article class="bg-white dark:bg-surface-dark rounded-xl p-5 shadow-sm border border-gray-100 dark:border-white/5 relative overflow-hidden">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-gray-100 dark:bg-surface-darker flex items-center justify-center overflow-hidden">
+<img alt="heavy weights area" class="w-full h-full object-cover opacity-80" data-alt="Heavy weights area in a gym" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeDcUNEfvz3oHZIvgenTrlQOlWLlCE0ULFUZx1ulyftLLv_uEN9J61I4aGvFaI3NUQJmbDNZQ8Bhd1dt_z_92zUj1jWB5pUdeE9MrVj711ldknkVNELTOYK3vTqqADOkTdUv4WaZKc0IrwRpbv3wdzCXMahV6CxIfWA57bdhiWzHN1y6-RmHQJQgY5qJQ-zjonyuNAUdGNEWF-chXqbdmHVKUrA6vQ-S6l5D0SVBaH5RD5nwcKxLK9tY1TEX4MLV7Ky1wkf09uBJih"/>
+</div>
+<div>
+<h3 class="font-bold text-lg leading-tight">GorilaGym</h3>
+<p class="text-xs text-primary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Active
+                                </p>
+</div>
+</div>
+<button class="text-gray-400 hover:text-white transition-colors">
+<span class="material-icons-outlined">more_horiz</span>
+</button>
+</div>
+<!-- Pricing Controls -->
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Inscription</span>
+<div class="flex items-center bg-gray-50 dark:bg-surface-darker rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">remove</span>
+</button>
+<span class="w-16 text-center font-bold font-display">$50</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-600 dark:text-gray-300">Monthly Fee</span>
+<div class="flex items-center bg-gray-50 dark:bg-surface-darker rounded-lg p-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">remove</span>
+</button>
+<span class="w-16 text-center font-bold font-display">$100</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-md text-gray-400 hover:bg-white hover:text-primary dark:hover:bg-surface-dark dark:hover:text-primary transition-all active:scale-95">
+<span class="material-icons-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Help/Support Link -->
+<div class="mt-8 text-center pb-8">
+<button class="text-xs text-gray-500 hover:text-primary transition-colors flex items-center justify-center gap-1 mx-auto">
+<span class="material-icons-outlined text-sm">help_outline</span>
+                Need help with configuration?
+            </button>
+</div>
+</main>
+<!-- Floating Action Button (Sync) -->
+<div class="fixed bottom-6 right-6 z-20">
+<button class="h-14 w-14 rounded-full bg-primary text-white shadow-lg shadow-primary/30 flex items-center justify-center hover:bg-primary/90 transition-all active:scale-90">
+<span class="material-icons-outlined text-2xl">sync</span>
+</button>
+</div>
+<!-- Bottom Navigation Bar (Contextual) -->
+<nav class="shrink-0 bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-white/5 px-6 py-4 flex justify-between items-center ios-bottom-padding">
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined text-2xl">dashboard</span>
+<span class="text-[10px] font-medium">Dashboard</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined text-2xl">fitness_center</span>
+<span class="text-[10px] font-medium">Gyms</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-outlined text-2xl">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors">
+<span class="material-icons-outlined text-2xl">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+</body></html>
