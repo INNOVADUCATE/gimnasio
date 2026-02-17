@@ -3,8 +3,8 @@ import { parseRoute, requireAuth, denyIfNoAccess, go } from './core/router.js';
 import { currentUser } from './core/auth.js';
 import {
   loginPage, hubPage, homePage, membersPage, memberNewPage, memberProfilePage, notificationsPage,
-  cashClosurePage, inventoryPage, shopPage, receiptPage, reportsPage, settingsPage, membershipChargePage,
-  accessGranted, accessDenied, ensureStaffRestrictions, ensureSessionRoot
+  cashClosurePage, inventoryPage, shopPage, receiptPage, reportsPage, settingsPage, accessGranted, accessDenied,
+  ensureStaffRestrictions, ensureSessionRoot
 } from './pages/screens.js';
 
 const app = document.getElementById('app');
@@ -23,23 +23,7 @@ function render() {
     return hubPage(app);
   }
 
-  let m = route.match(/^\/([^/]+)\/receipt\/([^/]+)$/);
-  if (m) {
-    const gymId = m[1];
-    const saleId = m[2];
-    if (denyIfNoAccess(gymId)) return;
-    return receiptPage(app, gymId, saleId);
-  }
-
-  m = route.match(/^\/([^/]+)\/membership-charge(?:\/([^/]+))?$/);
-  if (m) {
-    const gymId = m[1];
-    const memberId = m[2] || '';
-    if (denyIfNoAccess(gymId)) return;
-    return membershipChargePage(app, gymId, memberId);
-  }
-
-  m = route.match(/^\/([^/]+)\/(home|members|notifications|cash-closure|inventory|shop|receipt|reports\/monthly|settings)(?:\/([^/]+))?$/);
+  const m = route.match(/^\/([^/]+)\/(home|members|notifications|cash-closure|inventory|shop|receipt|reports\/monthly|settings)(?:\/([^/]+))?$/);
   if (m) {
     const gymId = m[1];
     const section = m[2];
