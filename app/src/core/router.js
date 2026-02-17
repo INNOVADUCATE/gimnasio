@@ -20,7 +20,9 @@ export function requireAuth() {
 export function canAccessGym(gymId) {
   const user = currentUser();
   if (!user) return false;
-  return user.role === 'super' || user.gymIds.includes(gymId);
+  // super can ALWAYS access any gym
+  if (user.role === 'super') return true;
+  return user.gymIds.includes(gymId);
 }
 
 export function denyIfNoAccess(gymId) {

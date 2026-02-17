@@ -1,54 +1,8 @@
-# Gym Espartano MVP (multi-gym)
+# Gym MVP (multi-gym) — Sistema de gestión para gimnasios
 
-MVP funcional (Vanilla JS + hash router) para operación diaria de gimnasio.
+MVP funcional (Vanilla JS + hash router + localStorage) para operación diaria de recepción.
 
-## Source of truth (orden y consistencia)
-
-### ✅ Editable
-- `app/src/**` → lógica de la app (router, auth, pages, data fake backend)
-- `app/index.html` → shell principal
-- `app/styles.css` → estilos globales
-
-### ❌ No editable (generado o raw)
-- `app/dist/**` → salida de build (se regenera con `npm run build`)
-- `stitch_raw/**` → export crudo de Stitch (trazabilidad, no tocar)
-
-## Stitch raw oficial
-
-La fuente oficial de exportaciones Stitch es:
-- `stitch_raw/<screenId>/code.html`
-- `stitch_raw/<screenId>/screen.png` (archivo local opcional, omitido en git durante pruebas)
-
-`stitch_raw/_legacy_named_exports/` se mantiene solo como referencia opcional histórica, no como fuente primaria.
-
-En etapa de pruebas, los screenshots PNG (`screen.png`) se omiten del control de versiones (ver `.gitignore`).
-
-## Estructura
-
-```text
-.
-├── app/
-│   ├── index.html
-│   ├── styles.css
-│   ├── package.json
-│   ├── scripts/build.mjs
-│   ├── src/
-│   │   ├── main.js
-│   │   ├── core/{auth.js,router.js}
-│   │   ├── data/{seeds.js,storage.js}
-│   │   ├── components/layout.js
-│   │   └── pages/screens.js
-│   └── dist/
-│       ├── index.html
-│       ├── styles.css
-│       └── assets/app.js
-├── scripts/download_stitch_raw.sh
-└── stitch_raw/
-    ├── <screenId>/{code.html,screen.png}
-    └── _legacy_named_exports/ (opcional)
-```
-
-## Comandos
+## Quick Start
 
 ```bash
 cd app
@@ -58,48 +12,78 @@ npm run dev
 
 Dev server: `http://localhost:5173`
 
-Build:
+## Credenciales demo
+
+| Rol   | Email              | Password   | Acceso                          |
+|-------|--------------------|------------|---------------------------------|
+| Super | super@gym.local    | super123   | Todas las sedes y settings      |
+| Staff | staff@gym.local    | staff123   | Solo Gym Espartano, sin settings|
+
+## Funcionalidades
+
+- **Multi-gym**: Hub para super, datos aislados por sede (espartano/centro)
+- **Socios**: CRUD, perfil, biometría, estado (active/overdue/blocked)
+- **Cuotas**: Inscripción $10.000 (una vez) + Mensualidad $35.000, nextDueDate +30 días
+- **Inventario**: CRUD con modal (agregar/editar), +10/-10 stock rápido
+- **Shop / POS**: Carrito real con +/-, método de pago, valida stock, descuenta inventario
+- **Comprobantes**: N° secuencial (000001...), detalle de items, imprimir
+- **Caja diaria**: Apertura/cierre con resumen
+- **Reportes**: Ingreso mensual con desglose productos vs cuotas
+- **Backup**: Export/Import JSON completo
+- **Debug panel**: Info de sesión y permisos (en Settings)
+
+## Rutas
+
+```
+#/login
+#/hub                          (solo super)
+#/:gymId/home
+#/:gymId/members
+#/:gymId/members/new
+#/:gymId/members/:memberId
+#/:gymId/notifications
+#/:gymId/cash-closure
+#/:gymId/inventory             (CRUD real)
+#/:gymId/shop                  (POS con carrito)
+#/:gymId/receipt/:saleId
+#/:gymId/reports/monthly
+#/:gymId/settings              (solo super)
+#/access-denied
+```
+
+## Estructura
+
+```
+app/
+├── index.html
+├── styles.css
+├── package.json
+├── scripts/{build.mjs, dev.mjs}
+├── src/
+│   ├── main.js               (router dispatch)
+│   ├── core/
+│   │   ├── auth.js            (login, session, currentUser)
+│   │   └── router.js          (parseRoute, guards)
+│   ├── data/
+│   │   ├── seeds.js           (demo data)
+│   │   └── storage.js         (localStorage CRUD, backup, receipts)
+│   ├── components/
+│   │   └── layout.js          (sidebar + nav)
+│   └── pages/
+│       └── screens.js         (todas las pantallas)
+└── dist/                      (build output)
+```
+
+## Source of truth
+
+- ✅ Editable: `app/src/**`, `app/index.html`, `app/styles.css`
+- ❌ No tocar: `app/dist/**` (regenerado), `stitch_raw/**` (exports raw)
+
+## Build
 
 ```bash
 cd app
 npm run build
 ```
 
-Resultado de build consistente en `app/dist/`:
-- `index.html`
-- `styles.css`
-- `assets/app.js`
-
-## Usuarios demo
-
-- Super admin: `super@gym.local` / `super123`
-- Staff: `staff@gym.local` / `staff123`
-
-## Rutas
-
-- `#/login`
-- `#/hub` (solo super)
-- `#/:gymId/home`
-- `#/:gymId/members`
-- `#/:gymId/members/new`
-- `#/:gymId/members/:memberId`
-- `#/:gymId/notifications`
-- `#/:gymId/cash-closure`
-- `#/:gymId/inventory`
-- `#/:gymId/shop`
-- `#/:gymId/receipt`
-- `#/:gymId/reports/monthly`
-- `#/:gymId/settings`
-- `#/access-granted`
-- `#/access-denied`
-
-## Stitch download (curl -L)
-
-```bash
-export STITCH_BASE_URL="https://<endpoint-stitch>"
-./scripts/download_stitch_raw.sh
-```
-
-## Nota de stack
-
-Se mantiene Opción B (Vanilla + hash router) por restricción del entorno (`403` al bootstrap de Vite/React en registry npm).
+Resultado en `app/dist/`.
