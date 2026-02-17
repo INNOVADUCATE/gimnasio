@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gym Espartano - Spartan Warrior Home</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&amp;family=Lexend:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4bf91f",
+                        "primary-dim": "#35ae16",
+                        "accent": "#8b5cf6",
+                        "background-dark": "#050705",
+                        "metal-dark": "#121412",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"],
+                        "chiseled": ["Cinzel", "serif"]
+                    },
+                    boxShadow: {
+                        'neon-green': '0 0 20px rgba(75, 249, 31, 0.4)',
+                        'neon-violet': '0 0 20px rgba(139, 92, 246, 0.4)',
+                        'rune-glow': '0 0 10px rgba(75, 249, 31, 0.6)',
+                    },
+                    backgroundImage: {
+                        'hammered-metal': "url('https://www.transparenttextures.com/patterns/dark-matter.png')",
+                        'stone-texture': "url('https://www.transparenttextures.com/patterns/asfalt-dark.png')",
+                        'meander-pattern': "url('https://www.transparenttextures.com/patterns/greek-vase.png')",
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">@layer base {
+    body {
+        @apply bg-background-dark text-white font- ["Lexend"]overflow-x-hidden;
+        }
+    }
+.meander-border {
+    mask-image: linear-gradient(to bottom, black, transparent);
+    opacity: 0.15
+    }
+.spartan-gradient {
+    background: radial-gradient(circle at center, rgba(75, 249, 31, 0.1) 0%, transparent 70%)
+    }
+.rune-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #4bf91f, #8b5cf6, transparent);
+    box-shadow: 0 0 8px #4bf91f
+    }
+.metal-card {
+    background-color: #0d110d;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBlWU6ptCEIJ6BxzIBi98vbQkxAxgTwpJJ5Qs0LMHHtMnv6ETa33dGdumOhZ0EXIPdmyHhnQPZwzJIJGvtRBkRIGyKaRNacD7tKZPOYJn5K7iMyfs6tsx-yqJUvGStdAIAJYpuhXiCxwXgFvilZV_NTUNr4rR58I7p3CYpPvHsA1NBKPQnuz4pUcuKQzmvxmJUg2G7E-ouMYiWgmV1Dy9n5Ka42ZWMImyPkm0jgPBWp_qcaeUs_t0DWgZBGpIMhi83Zg8HfT_I8Sj87);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    overflow: hidden
+    }
+.metal-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03), transparent);
+    pointer-events: none
+    }
+.chiseled-text {
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8), -1px -1px 0 rgba(255, 255, 255, 0.1)
+    }</style>
+<style>
+        body {
+            min-height: 100dvh;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="max-w-md mx-auto relative border-x border-white/5">
+<header class="fixed top-0 left-0 right-0 z-50 bg-background-dark/95 backdrop-blur-md px-6 py-4 flex justify-between items-center max-w-md mx-auto border-b border-white/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 flex items-center justify-center bg-primary/10 rounded-full border border-primary/30">
+<span class="material-symbols-outlined text-primary text-xl">shield</span>
+</div>
+<span class="font-chiseled text-lg tracking-widest uppercase">Espartano</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-white/80">menu</span>
+</button>
+</header>
+<main class="pt-16 pb-24">
+<section class="relative h-[60vh] flex flex-col items-center justify-center px-6 text-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-background-dark/40 via-background-dark/70 to-background-dark z-10"></div>
+<img alt="Gym Background" class="w-full h-full object-cover grayscale contrast-125 opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCD21A_8TWUFiTjqXqXuizcSN5ZAQDJwgY0PYfv1GFNHBP87rKbt0ibLQVGaq1CNQmGxJEUgR2OX4LhvN4dvs8kOgV_4VR_J7cDnrayuWVUmYecLK1b4ik7quIorSiqMo6OG7u9yf0lV9W0IcE6LAmogYb2ZX71GTW1_ffSGiwpoffcK_DBUPGgTsEYnaNMYye218SHaFNIwUZT3N_WTsj3lC74nE8Ofthinngwe5KvEYBVi4GklPNWykafA3KWSBaxe1xcViERD1k"/>
+<div class="absolute inset-0 bg-meander-pattern opacity-10 mix-blend-overlay"></div>
+</div>
+<div class="relative z-20 space-y-4">
+<div class="inline-block px-4 py-1 border-x-2 border-primary/50 mb-2">
+<p class="text-[10px] text-primary font-bold uppercase tracking-[0.4em]">Sin Retirada • Sin Rendición</p>
+</div>
+<h1 class="text-5xl font-chiseled font-black leading-none tracking-tight chiseled-text">
+                    GYM<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-accent drop-shadow-[0_0_15px_rgba(75,249,31,0.5)]">ESPARTANO</span>
+</h1>
+<p class="text-white/70 text-sm font-medium italic">EL DESTINO DE LOS VALIENTES</p>
+<div class="pt-10">
+<button class="group relative bg-white text-black font-black py-4 px-10 rounded-sm shadow-neon-green active:scale-95 transition-all overflow-hidden">
+<span class="relative z-10 flex items-center gap-3 tracking-widest uppercase text-xs">
+                            Únete a la Falange
+                            <span class="material-symbols-outlined font-bold text-sm">arrow_right_alt</span>
+</span>
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 rune-line opacity-60"></div>
+</section>
+<section class="px-6 py-10 grid grid-cols-3 gap-4 relative">
+<div class="flex flex-col items-center text-center gap-2 group">
+<div class="w-14 h-14 rounded-full metal-card flex items-center justify-center border-primary/30 group-hover:border-primary transition-colors shadow-underglow-green">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">fitness_center</span>
+</div>
+<span class="text-[9px] font-black uppercase tracking-tighter text-white/90">Fuerza Bruta</span>
+</div>
+<div class="flex flex-col items-center text-center gap-2 group">
+<div class="w-14 h-14 rounded-full metal-card flex items-center justify-center border-accent/30 group-hover:border-accent transition-colors shadow-underglow-violet">
+<span class="material-symbols-outlined text-accent group-hover:scale-110 transition-transform">swords</span>
+</div>
+<span class="text-[9px] font-black uppercase tracking-tighter text-white/90">Disciplina</span>
+</div>
+<div class="flex flex-col items-center text-center gap-2 group">
+<div class="w-14 h-14 rounded-full metal-card flex items-center justify-center border-primary/30 group-hover:border-primary transition-colors shadow-underglow-green">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">temple_buddhist</span>
+</div>
+<span class="text-[9px] font-black uppercase tracking-tighter text-white/90">Honor</span>
+</div>
+</section>
+<section class="px-6 py-6 pb-12">
+<div class="flex items-center gap-4 mb-8">
+<div class="h-[1px] flex-1 bg-white/10"></div>
+<h2 class="font-chiseled text-xl tracking-widest uppercase text-white/90">Cuarteles</h2>
+<div class="h-[1px] flex-1 bg-white/10"></div>
+</div>
+<div class="space-y-6">
+<div class="metal-card rounded-xl p-6 shadow-underglow-green border-l-2 border-l-primary/50 group">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-chiseled text-lg tracking-widest text-primary">CENTRO</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-white/40">location_on</span>
+<p class="text-white/50 text-[11px] font-medium tracking-wide">Av. Corrientes 1234, CABA</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary/30 group-hover:text-primary transition-colors">hexagon</span>
+</div>
+<a class="flex items-center justify-center gap-2 w-full py-4 bg-primary/10 hover:bg-primary text-primary hover:text-black rounded font-black text-[10px] uppercase tracking-[0.2em] transition-all border border-primary/20" href="#">
+<span class="material-symbols-outlined text-sm">send</span>
+                        Consultar Vía WhatsApp
+                    </a>
+</div>
+<div class="metal-card rounded-xl p-6 shadow-underglow-violet border-l-2 border-l-accent/50 group">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-chiseled text-lg tracking-widest text-accent">BELGRANO</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-white/40">location_on</span>
+<p class="text-white/50 text-[11px] font-medium tracking-wide">Av. Cabildo 2400, CABA</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-accent/30 group-hover:text-accent transition-colors">hexagon</span>
+</div>
+<a class="flex items-center justify-center gap-2 w-full py-4 bg-accent/10 hover:bg-accent text-accent hover:text-black rounded font-black text-[10px] uppercase tracking-[0.2em] transition-all border border-accent/20" href="#">
+<span class="material-symbols-outlined text-sm">send</span>
+                        Consultar Vía WhatsApp
+                    </a>
+</div>
+<div class="metal-card rounded-xl p-6 shadow-underglow-green border-l-2 border-l-primary/50 group">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-chiseled text-lg tracking-widest text-primary">PALERMO</h3>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[14px] text-white/40">location_on</span>
+<p class="text-white/50 text-[11px] font-medium tracking-wide">Av. Santa Fe 3800, CABA</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary/30 group-hover:text-primary transition-colors">hexagon</span>
+</div>
+<a class="flex items-center justify-center gap-2 w-full py-4 bg-primary/10 hover:bg-primary text-primary hover:text-black rounded font-black text-[10px] uppercase tracking-[0.2em] transition-all border border-primary/20" href="#">
+<span class="material-symbols-outlined text-sm">send</span>
+                        Consultar Vía WhatsApp
+                    </a>
+</div>
+</div>
+<div class="mt-12 py-8 text-center border-t border-white/5 relative">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-background-dark px-4">
+<span class="material-symbols-outlined text-primary/40">apparel</span>
+</div>
+<p class="text-white/40 text-[11px] uppercase tracking-widest mb-1">Horarios según sucursal</p>
+<p class="text-white font-bold text-xs">Consultá disponibilidad por WhatsApp</p>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-background-dark/95 backdrop-blur-xl border-t border-white/10 px-8 py-5 flex justify-between items-center max-w-md mx-auto">
+<button class="flex flex-col items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined filled text-2xl">home</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter">Campo</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 text-white/40">
+<span class="material-symbols-outlined text-2xl">swords</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter">Entrenar</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 text-white/40">
+<span class="material-symbols-outlined text-2xl">trophy</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter">Gloria</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 text-white/40">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[9px] font-bold uppercase tracking-tighter">Perfil</span>
+</button>
+</nav>
+<div class="fixed bottom-28 right-6 z-40">
+<button class="w-14 h-14 bg-primary text-black rounded-sm rotate-45 shadow-neon-green flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined -rotate-45 text-2xl font-black">chat</span>
+</button>
+</div>
+
+</body></html>

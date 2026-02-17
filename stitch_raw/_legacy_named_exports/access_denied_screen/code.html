@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#f9441f",
+              "background-light": "#f8f6f5",
+              "background-dark": "#23130f",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .glow-pulse {
+            box-shadow: 0 0 40px rgba(249, 68, 31, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white overflow-hidden font-display">
+<div class="relative min-h-screen flex flex-col justify-between p-6">
+<header class="flex items-center justify-between pt-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+<span class="material-icons text-primary text-xl">security</span>
+</div>
+<div>
+<h1 class="text-sm font-bold tracking-widest uppercase opacity-80">Infinit</h1>
+<p class="text-[10px] uppercase tracking-tighter opacity-50">Sede Central - Biometric v2.4</p>
+</div>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5">
+<span class="material-icons text-white/60">close</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center gap-8">
+<div class="relative">
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-150 animate-pulse"></div>
+<div class="relative z-10 w-64 h-64 border-[6px] border-primary rounded-full flex items-center justify-center glow-pulse bg-background-dark/50">
+<div class="flex flex-col items-center">
+<span class="material-icons text-[120px] text-primary">close</span>
+</div>
+</div>
+<div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-primary text-white px-6 py-2 rounded-full font-bold text-sm tracking-widest shadow-lg shadow-primary/40 whitespace-nowrap">
+                    ACCESO DENEGADO
+                </div>
+</div>
+<div class="text-center space-y-4 max-w-xs">
+<h2 class="text-4xl font-bold text-primary uppercase tracking-tight">CUENTA VENCIDA</h2>
+<p class="text-white/60 text-lg">El periodo de membresía ha expirado o existe un saldo insoluto.</p>
+</div>
+<div class="w-full bg-white/5 border border-white/10 rounded-2xl p-6 flex items-center gap-5">
+<div class="relative">
+<img class="w-20 h-20 rounded-full object-cover border-2 border-primary/50 shadow-lg" data-alt="Portrait of a male gym member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmwffhCO38zOjJRFuCRCpvKe_tD3mJIeJqlr9Fh8kUEnbBt7ThbDNkZ_Z5h526MzlC0W6DARwtYsvh5Wx2K3UtEwfcq61i93paKigVu3ZPoFAKLUKtr2feLpUlhtPGnDwFcM9UcRdzTtdEK_MPYxJdO4ny1pTFygJQ5Vw4HjHT2g4hOnmc60Mjcc0dUaVwoV_Uv1sGBptwrQoe8jz8Y8bSfhRulYCslgTz4RFEg7FomDm_ZmYTihxuZb8tBAHP7eFYjB6J-t2kdyNH"/>
+<div class="absolute -top-1 -right-1 bg-red-500 w-6 h-6 rounded-full flex items-center justify-center border-2 border-background-dark">
+<span class="material-icons text-[12px]">priority_high</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="text-xs uppercase tracking-widest text-white/40 font-medium">Socio #82104</span>
+<span class="text-2xl font-bold leading-tight">Juan Pablo Pérez</span>
+<div class="flex items-center gap-1 mt-1">
+<span class="material-icons text-primary text-sm">history</span>
+<span class="text-sm text-primary font-medium">Vencido: hace 3 días</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="pb-10 space-y-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-5 rounded-xl text-lg flex items-center justify-center gap-3 transition-all active:scale-[0.98] shadow-2xl shadow-primary/20">
+<span class="material-icons">payments</span>
+                REGISTRAR PAGO AHORA
+            </button>
+<button class="w-full bg-white/5 hover:bg-white/10 text-white/60 font-medium py-4 rounded-xl text-base flex items-center justify-center gap-2 transition-all">
+<span class="material-icons text-sm">refresh</span>
+                REINTENTAR LECTURA
+            </button>
+</footer>
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-primary/10 to-transparent"></div>
+<div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-primary/10 to-transparent"></div>
+</div>
+</div>
+</body></html>

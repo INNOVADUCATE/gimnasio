@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daily Cash Closure</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                        "gym-infinit": "#06b6d4", // Cyan
+                        "gym-espartano": "#22c55e", // Green
+                        "gym-gorila": "#f97316", // Orange
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+        /* Remove arrows from number inputs */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display antialiased min-h-screen flex flex-col items-center justify-center">
+<!-- Mobile Container Wrapper -->
+<div class="w-full max-w-md h-screen max-h-[900px] bg-background-light dark:bg-background-dark relative flex flex-col overflow-hidden shadow-2xl sm:rounded-xl sm:h-[850px] sm:border sm:border-slate-200 dark:sm:border-slate-800">
+<!-- Top Bar / Header -->
+<header class="bg-background-light dark:bg-background-dark z-20 px-6 pt-12 pb-4 sticky top-0 border-b border-slate-200 dark:border-slate-800/50 backdrop-blur-md bg-opacity-90 dark:bg-opacity-90">
+<div class="flex justify-between items-center mb-1">
+<button class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons">arrow_back_ios</span>
+</button>
+<span class="text-sm font-medium text-slate-500 dark:text-slate-400">14 Oct, 2023</span>
+<button class="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons">history</span>
+</button>
+</div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Cierre de Caja</h1>
+</header>
+<!-- Main Content (Scrollable) -->
+<main class="flex-1 overflow-y-auto px-4 py-6 pb-24 space-y-6">
+<!-- Total Hero Section -->
+<section class="bg-gradient-to-br from-primary to-blue-600 rounded-xl p-6 text-center text-white shadow-lg relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-white opacity-10 rounded-full blur-xl group-hover:scale-110 transition-transform duration-500"></div>
+<div class="absolute -left-4 -bottom-4 w-20 h-20 bg-black opacity-10 rounded-full blur-xl"></div>
+<h2 class="text-blue-100 text-sm font-medium mb-1 tracking-wide uppercase">Total Recaudado</h2>
+<div class="flex justify-center items-baseline gap-1">
+<span class="text-3xl font-light opacity-80">$</span>
+<span class="text-5xl font-bold tracking-tight">45,230</span>
+<span class="text-xl font-medium opacity-80">.00</span>
+</div>
+<div class="mt-4 flex justify-between text-xs px-4 border-t border-white/20 pt-3">
+<div class="flex flex-col">
+<span class="opacity-70">Efectivo</span>
+<span class="font-bold">$ 12,400</span>
+</div>
+<div class="flex flex-col border-l border-white/20 pl-4">
+<span class="opacity-70">Digital</span>
+<span class="font-bold">$ 32,830</span>
+</div>
+</div>
+</section>
+<!-- Gym Section: Infinit -->
+<section class="space-y-3">
+<div class="flex items-center gap-2">
+<div class="w-1 h-5 rounded-full bg-gym-infinit shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+<h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200">Infinit Gym</h3>
+<span class="ml-auto text-xs font-mono bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded text-slate-600 dark:text-slate-400">MEMBRESÍAS</span>
+</div>
+<div class="bg-white dark:bg-slate-800/50 rounded-lg p-4 border border-slate-100 dark:border-slate-700/50 shadow-sm">
+<div class="grid grid-cols-1 gap-4">
+<!-- Input Group -->
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Efectivo</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 material-icons text-sm">payments</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-gym-infinit sm:text-sm sm:leading-6 font-mono text-right" name="infinit_cash" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Transferencia</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 material-icons text-sm">qr_code</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-gym-infinit sm:text-sm sm:leading-6 font-mono text-right" name="infinit_transfer" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Tarjeta</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 material-icons text-sm">credit_card</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-gym-infinit sm:text-sm sm:leading-6 font-mono text-right" name="infinit_card" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gym Section: Espartano -->
+<section class="space-y-3 pt-2">
+<div class="flex items-center gap-2">
+<div class="w-1 h-5 rounded-full bg-gym-espartano shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
+<h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200">Espartano</h3>
+<span class="ml-auto text-xs font-mono bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded text-slate-600 dark:text-slate-400">MEMBRESÍAS</span>
+</div>
+<div class="bg-white dark:bg-slate-800/50 rounded-lg p-4 border border-slate-100 dark:border-slate-700/50 shadow-sm">
+<div class="grid grid-cols-1 gap-4">
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Efectivo</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 material-icons text-sm">payments</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-gym-espartano sm:text-sm sm:leading-6 font-mono text-right" name="espartano_cash" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Transferencia</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 material-icons text-sm">qr_code</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-gym-espartano sm:text-sm sm:leading-6 font-mono text-right" name="espartano_transfer" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Tarjeta</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 material-icons text-sm">credit_card</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-gym-espartano sm:text-sm sm:leading-6 font-mono text-right" name="espartano_card" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gym Section: Gorila -->
+<section class="space-y-3 pt-2">
+<div class="flex items-center gap-2">
+<div class="w-1 h-5 rounded-full bg-gym-gorila shadow-[0_0_10px_rgba(249,115,22,0.5)]"></div>
+<h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200">GorilaGym</h3>
+<span class="ml-auto text-xs font-mono bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded text-slate-600 dark:text-slate-400">MEMBRESÍAS</span>
+</div>
+<div class="bg-white dark:bg-slate-800/50 rounded-lg p-4 border border-slate-100 dark:border-slate-700/50 shadow-sm">
+<div class="grid grid-cols-1 gap-4">
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Efectivo</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 material-icons text-sm">payments</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-gym-gorila sm:text-sm sm:leading-6 font-mono text-right" name="gorila_cash" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Transferencia</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 material-icons text-sm">qr_code</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-gym-gorila sm:text-sm sm:leading-6 font-mono text-right" name="gorila_transfer" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Tarjeta</label>
+<div class="relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-slate-400 material-icons text-sm">credit_card</span>
+</div>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-gym-gorila sm:text-sm sm:leading-6 font-mono text-right" name="gorila_card" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Products Section -->
+<section class="space-y-3 pt-4 border-t border-slate-200 dark:border-slate-800 mt-4">
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary bg-primary/20 p-1.5 rounded-lg text-sm">local_drink</span>
+<h3 class="text-lg font-semibold text-slate-800 dark:text-slate-200">Productos</h3>
+<span class="ml-auto text-xs font-mono bg-primary/10 px-2 py-1 rounded text-primary">VENTAS</span>
+</div>
+<div class="bg-white dark:bg-slate-800/30 rounded-lg p-4 border border-slate-100 dark:border-slate-700/50 shadow-sm">
+<div class="grid grid-cols-2 gap-3">
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Efectivo</label>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 px-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 font-mono text-right" name="prod_cash" placeholder="0.00" type="number"/>
+</div>
+<div class="relative">
+<label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 ml-1">Transferencia</label>
+<input class="block w-full rounded-lg border-0 bg-slate-50 dark:bg-slate-900/50 py-3 px-4 text-slate-900 dark:text-white ring-1 ring-inset ring-slate-200 dark:ring-slate-700 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6 font-mono text-right" name="prod_transfer" placeholder="0.00" type="number"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Sticky Footer -->
+<footer class="absolute bottom-0 w-full p-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 z-30">
+<button class="w-full bg-primary hover:bg-blue-600 active:scale-[0.98] transition-all duration-200 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-2 group">
+<span class="material-icons group-hover:rotate-90 transition-transform">check_circle</span>
+                Cerrar Día
+            </button>
+</footer>
+</div>
+</body></html>
